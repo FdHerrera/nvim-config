@@ -188,14 +188,10 @@ nnoremap <leader>f :FZF
 nnoremap <space>w <C-w>w
 
 " Saves and quits
-nnoremap <leader>q :wq
+nnoremap <leader>q :wq<ENTER>
 
 " Sets case insensitive
 set ignorecase
-
-" Set open in new tab with Enter :NERDTree
-let NERDTreeMapOpenInTab='<TAB>'
-let NERDTreeMapOpenInTabSilent='<ENTER>'
 
 "Setters
 syntax on
