@@ -188,8 +188,11 @@ nnoremap <leader>nt :NERDTree<Enter>
 " Finder
 nnoremap <leader>f :FZF<Enter>
 
+" Saves 
+nnoremap <space>s :w<Enter>
+
 " Saves and quits
-nnoremap <space>s :wq<Enter>
+nnoremap <space>e :wq<Enter>
 
 " Quits
 nnoremap <space>q :q<Enter>
