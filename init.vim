@@ -29,7 +29,10 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'neoclide/coc-java'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/neoclide/coc-java'
+
 call plug#end()
+
+let mapleader = ","
 
 " Extended lines beyond display (scroll needed)
 set nowrap
@@ -37,7 +40,8 @@ set nowrap
 " No highlight in Search
 set nohlsearch
 
-let mapleader = ","
+" No Highlith in search 
+set nohlsearch
 
 " Some servers have issues with backup files, see #649.
 set nobackup
@@ -162,8 +166,6 @@ command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.org
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions.
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document.
 nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols.
@@ -175,23 +177,25 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-"NERDTree tabs
+" NERDTree tabs
 nnoremap <space>l gt<CR>
 nnoremap <space>h gT<CR>
-
-" Loads Tree
-nnoremap <leader>nt :NERDTree
-" Fuzzy Finder
-nnoremap <leader>f :FZF
-
-" Change current tab
+" Switchs pane
 nnoremap <space>w <C-w>w
 
-" Saves and quits
-nnoremap <leader>q :wq<ENTER>
+" Trees
+nnoremap <leader>nt :NERDTree<Enter>
+" Finder
+nnoremap <leader>f :FZF<Enter>
 
-" Sets case insensitive
-set ignorecase
+" Saves and quits
+nnoremap <space>s :wq<Enter>
+
+" Quits
+nnoremap <space>q :q<Enter>
+
+" Copy to clipboard
+vmap <space>c "*y
 
 "Setters
 syntax on
