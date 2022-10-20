@@ -29,6 +29,7 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'neoclide/coc-java'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/neoclide/coc-java'
+Plug 'https://github.com/numkil/ag.nvim'
 
 call plug#end()
 

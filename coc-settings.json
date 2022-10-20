@@ -1,4 +1,6 @@
 {
 	"java.home": "C:/Program Files/Java/jdk-17.0.4.1",
-	"java.saveActions.organizeImports": true
+	"java.saveActions.organizeImports": true,
+	"prettier.trailingComma": "none",
+	"coc.preferences.formatOnSaveFiletypes": ["*"]
 }
