@@ -1,6 +1,15 @@
 call plug#begin()
 Plug 'neoclide/coc.nvim'
-let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier']
+let g:coc_global_extensions = [
+      \'coc-tslint-plugin', 
+      \'coc-tsserver', 
+      \'coc-css', 
+      \'coc-html', 
+      \'coc-json', 
+      \'coc-prettier',
+      \'coc-eslint',
+      \'coc-java',
+      \]
 
 Plug 'Julpikar/night-owl.nvim'
 
@@ -15,6 +24,7 @@ Plug 'itchyny/lightline.vim'
 " Typing 
 Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -26,10 +36,9 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/ryanoasis/vim-devicons'
-Plug 'neoclide/coc-java'
 Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/neoclide/coc-java'
 Plug 'https://github.com/numkil/ag.nvim'
+Plug 'https://github.com/yaegassy/coc-volar'
 
 call plug#end()
 
@@ -154,7 +163,7 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
+command! -nargs=0 Format :call CocActionAsync('runCommand', 'prettier.formatFile')
 
 " Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
