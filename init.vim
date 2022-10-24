@@ -50,9 +50,6 @@ set nowrap
 " No highlight in Search
 set nohlsearch
 
-" No Highlith in search 
-set nohlsearch
-
 " Some servers have issues with backup files, see #649.
 set nobackup
 set nowritebackup
