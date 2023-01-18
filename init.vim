@@ -9,9 +9,10 @@ let g:coc_global_extensions = [
       \'coc-prettier',
       \'coc-eslint',
       \'coc-java',
+      \'coc-emmet'
       \]
 
-Plug 'Julpikar/night-owl.nvim'
+Plug 'haishanh/night-owl.vim'
 
 "Syntax
 Plug 'sheerun/vim-polyglot'
@@ -37,8 +38,10 @@ Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/numkil/ag.nvim'
 Plug 'https://github.com/yaegassy/coc-volar'
+Plug 'mileszs/ack.vim'
+Plug 'https://github.com/mfussenegger/nvim-jdtls'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -191,7 +194,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 nnoremap <space>l gt<CR>
 nnoremap <space>h gT<CR>
 " Switchs pane
-nnoremap <space>w <C-w>w
+nmap <space>w <C-w>w
 
 " Trees
 nnoremap <leader>nt :NERDTree<Enter>
@@ -210,11 +213,22 @@ nnoremap <space>q :q<Enter>
 " Copy to clipboard
 vmap <space>c "*y
 
+" Searchs with Ack
+nnoremap <leader>s :Ack<space>
+
+" Searchs with Ack
+nnoremap <leader>e :Explore<Enter>
+
+" Formats
+nnoremap <space>f :call CocAction('format')<Enter>
+
 "Setters
 syntax on
 set guifont=Fira\ Code
-colorscheme night-owl
+colorscheme tokyonight-storm
 set rnu nu 
 set cursorline
 set showmatch
+
+lua require('init')
 

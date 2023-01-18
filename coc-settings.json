@@ -1,8 +1,18 @@
 {
-  "java.home": "C:/Program Files/Java/jdk-17.0.4.1",
-  "java.saveActions.organizeImports": true,
+  "java.home": "C:/Users/federico.herrera/.jdks/corretto-1.8.0_312",
+  "java.trace.server": "verbose",
+  "java.enabled": true,
   "prettier.trailingComma": "none",
-  "coc.preferences.formatOnSaveFiletypes": ["*"],
-  "eslint.run": "onSave",
-  "eslint.autoFixOnSave": true
+  "emmet.includeLanguages": { "vue-html": "html" },
+  "tsserver.enable": false,
+  "prettier.onlyUseLocalVersion": true,
+  "eslint.format.enable": true,
+  "eslint.options": {
+        "trailingComma": "none",
+        "arrowParens": "avoid",
+        "endOfLine": "auto"
+  },
+  "prettier.arrowParens": "avoid",
+  "prettier.endOfLine": "auto",
+  "java.format.settings.url": "C:\\Users\\federico.herrera\\AppData\\Local\\coc\\extensions\\node_modules\\redhat.java\\eclipse-formatter.xml"
 }
