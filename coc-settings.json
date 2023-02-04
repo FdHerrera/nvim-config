@@ -1,5 +1,4 @@
 {
-  "java.home": "C:/Users/federico.herrera/.jdks/corretto-1.8.0_312",
   "java.trace.server": "verbose",
   "java.enabled": true,
   "prettier.trailingComma": "none",
@@ -14,5 +13,6 @@
   },
   "prettier.arrowParens": "avoid",
   "prettier.endOfLine": "auto",
-  "java.format.settings.url": "C:\\Users\\federico.herrera\\AppData\\Local\\coc\\extensions\\node_modules\\redhat.java\\eclipse-formatter.xml"
+  "java.format.settings.url": "C:\\Users\\federico.herrera\\AppData\\Local\\coc\\extensions\\node_modules\\redhat.java\\eclipse-formatter.xml",
+  "coc.preferences.jumpCommand": "tabe"
 }

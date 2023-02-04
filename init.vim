@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 let g:coc_global_extensions = [
       \'coc-tslint-plugin', 
       \'coc-tsserver', 
@@ -122,8 +122,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <space>f  <Plug>(coc-format-selected)
+nmap <space>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -217,12 +217,12 @@ nnoremap <leader>s :Ack<space>
 nnoremap <leader>e :Explore<Enter>
 
 " Formats
-nnoremap <space>f :call CocAction('format')<Enter>
+nnoremap <space>F :call CocAction('format')<Enter>
 
 "Setters
 syntax on
 set guifont=Fira\ Code
-colorscheme tokyonight-storm
+colorscheme tokyonight
 set rnu nu 
 set cursorline
 set showmatch
