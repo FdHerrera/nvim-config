@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
       \'coc-prettier',
       \'coc-eslint',
       \'coc-java',
+      \'coc-java-debug',
       \'coc-emmet'
       \]
 
@@ -218,6 +219,18 @@ nnoremap <leader>e :Explore<Enter>
 
 " Formats
 nnoremap <space>F :call CocAction('format')<Enter>
+
+" Runs mvn test with the current buffer name a filter parameter.  
+noremap <leader>t :call RunMvnThisTest(expand("%:t:r"))<CR>
+
+" Runs all tests, but catch the output and open a new buffer with the result of the mvn build
+noremap <leader>TT :call RunMvnTest()<CR>
+
+" Inserts a semicolon at the end of the line
+nnoremap <space>; A;<Esc>
+
+nnoremap <C-j> 10j
+nnoremap <C-k> 10k
 
 "Setters
 syntax on
