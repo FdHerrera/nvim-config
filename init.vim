@@ -27,8 +27,11 @@ Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/yaegassy/coc-volar'
 Plug 'mileszs/ack.vim'
-Plug 'https://github.com/mfussenegger/nvim-jdtls'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'wbthomason/packer.nvim',
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
 
 call plug#end()
 
