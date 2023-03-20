@@ -32,6 +32,10 @@ Plug 'wbthomason/packer.nvim',
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'mfussenegger/nvim-jdtls'
+Plug 'mfussenegger/nvim-dap'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 
 call plug#end()
 
@@ -80,15 +84,6 @@ vmap <space>c "*y
 
 " Searchs with Ack
 nnoremap <leader>s :Ack<space>
-
-" Searchs with Ack
-nnoremap <leader>e :Explore<Enter>
-
-" Runs mvn test with the current buffer name a filter parameter.  
-noremap <leader>t :call RunMvnThisTest(expand("%:t:r"))<CR>
-
-" Runs all tests, but catch the output and open a new buffer with the result of the mvn build
-noremap <leader>TT :call RunMvnTest()<CR>
 
 " Inserts a semicolon at the end of the line
 nnoremap <space>; A;<Esc>
