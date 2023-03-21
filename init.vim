@@ -9,9 +9,8 @@ Plug 'junegunn/fzf' "File Finder
 Plug 'junegunn/fzf.vim' "File Finder
 Plug 'yggdroot/indentline' "Highligth indentation
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
-Plug 'preservim/nerdtree' "NerdTree
-Plug 'Xuyuanp/nerdtree-git-plugin' "Git changes in NerdTree
-Plug 'https://github.com/ryanoasis/vim-devicons' "Icons for NerdTree
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'https://github.com/airblade/vim-gitgutter' "Git changes
 Plug 'mileszs/ack.vim' "File Content Searcher
 Plug 'williamboman/mason.nvim' "Servers Admin
@@ -55,8 +54,6 @@ nnoremap <space>h gT<CR>
 " Switchs pane
 nmap <space>w <C-w>w
 
-" Trees
-nnoremap <leader>nt :NERDTreeToggle<Enter>
 " Finder
 nnoremap <leader>f :FZF<Enter>
 

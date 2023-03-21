@@ -33,3 +33,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+vim.keymap.set('n', '<space>nt', '<cmd>:NvimTreeToggle<CR>')
+vim.keymap.set('n', '<space>nT', '<cmd>:NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<space>c', '<cmd>:NvimTreeCollapse<CR>')
+vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
