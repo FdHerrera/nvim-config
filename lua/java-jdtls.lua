@@ -2,7 +2,7 @@
 local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
 local path_to_lsp_server = jdtls_path .. "/config_win"
 local path_to_plugins = jdtls_path .. "/plugins/"
-local path_to_jar = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+local equinox_launcher_path = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local lombok_path = jdtls_path .. "/lombok.jar"
 local java_17_path = os.getenv('JAVA_17');
 
@@ -33,7 +33,7 @@ local config = {
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
 
-        '-jar', path_to_jar,
+        '-jar', equinox_launcher_path,
         '-configuration', path_to_lsp_server,
         '-data', workspace_dir,
     },

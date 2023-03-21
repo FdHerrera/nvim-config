@@ -1,13 +1,34 @@
 # nvim-config
 
-Personal configuration for nvim for software development, currently working at 100% with Vue based projects, soon adding Java.
+Personal configuration for nvim for software development
 
 Pre-requesites:
 
-- Properly installed nvim and added to path
-- npm
+- Nvim >= 0.7
+- **npm >= 9.5.1
+- node >= v19.8.1
 - yarn
-- Windows Terminal
-  Ag to work with FZF (Winget or Choco recommended for windows)
+- Windows Terminal with Powershell
+- Python3
+- pip 
+- Java 17 (Other versions defined in PATH for development)
+- Visual Studio >= 17
+- Wget
+- curl
+- tar
+- pynvim
+- C runner (on windows, preferable 'cc')
+- maven
 
-For Windows OS, clone it at AppData/Local/nvim
+Setup:
+
+Define Environment Variable JAVA_17 pointing to jdk 17 (preferably, also JAVA_11 and JAVA_18)
+
+Clone this repo: on windows "$user/AppData/Local/nvim"
+- 'npm install -g tree-sitter'
+- 'npm install -g neovim'
+Install Vim Plug
+Run 'Plug Install'
+Run 'TSUpdate'
+
+
