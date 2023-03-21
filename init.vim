@@ -22,7 +22,8 @@ Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
 Plug 'hrsh7th/cmp-nvim-lsp' " LSP source for nvim-cmp
 Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' "Snippets
-Plug 'mfussenegger/nvim-dap' "Util
+Plug 'mfussenegger/nvim-dap' "Debug
+Plug 'vim-test/vim-test' "Tests Runner
 Plug 'nvim-lua/plenary.nvim'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 
@@ -55,7 +56,7 @@ nnoremap <space>h gT<CR>
 nmap <space>w <C-w>w
 
 " Trees
-nnoremap <leader>nt :NERDTree<Enter>
+nnoremap <leader>nt :NERDTreeToggle<Enter>
 " Finder
 nnoremap <leader>f :FZF<Enter>
 
@@ -87,6 +88,12 @@ colorscheme nightfox
 set rnu nu 
 set cursorline
 set showmatch
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
 
 lua require('init')
 
