@@ -1,9 +1,9 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
 local path_to_lsp_server = jdtls_path .. "/config_win"
-local path_to_plugins = jdtls_path .. "/plugins/"
-local equinox_launcher_path = path_to_plugins .. "org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
+local equinox_launcher_path = jdtls_path .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
 local lombok_path = jdtls_path .. "/lombok.jar"
+local java_18_path = os.getenv('JAVA_18');
 local java_17_path = os.getenv('JAVA_17');
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
@@ -14,7 +14,6 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
-os.execute("mkdir " .. workspace_dir)
 
 -- Main Config
 local config = {
@@ -54,7 +53,7 @@ local config = {
                 runtimes = {
                     {
                         name = "JavaSE-18",
-                        path = os.getenv('JAVA_18'),
+                        path = java_18_path,
                     },
                     {
                         name = "JavaSE-17",
@@ -97,6 +96,7 @@ local config = {
                 "org"
             },
         },
+	extendedClientCapabilities = require('cmp-capabilities').getCapabilities(),
         sources = {
             organizeImports = {
                 starThreshold = 9999,
@@ -132,4 +132,3 @@ end
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 require('jdtls').start_or_attach(config)
-
