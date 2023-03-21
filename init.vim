@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'haishanh/night-owl.vim'
+Plug 'EdenEast/nightfox.nvim'
 
 "Syntax
 Plug 'sheerun/vim-polyglot'
@@ -94,7 +94,7 @@ nnoremap <C-k> 10k
 "Setters
 syntax on
 set guifont=Fira\ Code
-colorscheme tokyonight
+colorscheme nightfox
 set rnu nu 
 set cursorline
 set showmatch
