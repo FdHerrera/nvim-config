@@ -96,7 +96,7 @@ local config = {
                 "org"
             },
         },
-	extendedClientCapabilities = require('cmp-capabilities').getCapabilities(),
+	extendedClientCapabilities = require('plugins.utils').getCapabilities(),
         sources = {
             organizeImports = {
                 starThreshold = 9999,
