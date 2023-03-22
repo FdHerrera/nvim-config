@@ -31,4 +31,8 @@ Install Vim Plug
 Run 'Plug Install'
 Run 'TSUpdate'
 
+For Java Testing and Debugging:
+
+Clone and install microsoft/java-debug, define an environment variable named: 'JAVA_DEBUGGER'
+Clone and install microsoft/vscode-java-test, define an environment variable named: 'VSCODE_JAVA_TEST'
 
