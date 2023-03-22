@@ -18,7 +18,7 @@ end
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
 
--- Bundles for debugging -- 
+-- Bundles for debugging --
 local bundles = { java_debugger }
 vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv('VSCODE_JAVA_TEST') .. "/server/*.jar", 1), "\n"))
 
@@ -126,7 +126,7 @@ local config = {
 }
 
 config['on_attach'] = function(client, bufnr)
-	require('jdtls').setup_dap({ hodcodereplace = 'auto' })
+	require('jdtls').setup_dap({ hotcodereplace = 'auto' })
 	require "lsp_signature".on_attach({
 		bind = true, -- This is mandatory, otherwise border config won't get registered.
 		floating_window_above_cur_line = false,
