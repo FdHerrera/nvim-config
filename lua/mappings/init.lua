@@ -1,14 +1,13 @@
--- Global mappings -- 
-vim.keymap.set('n', '<space>nt', '<cmd>:NvimTreeToggle<CR>')
-vim.keymap.set('n', '<space>nT', '<cmd>:NvimTreeFindFile<CR>')
-vim.keymap.set('n', '<space>c', '<cmd>:NvimTreeCollapse<CR>')
-vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
-vim.keymap.set('n', '<space>w', '<C-w>w')
-vim.keymap.set('n', '<space>w', ':w<Enter>')
+-- Global mappings --
+vim.keymap.set('n', '<space>nt', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<space>nT', ':NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<space>c', 'NvimTreeCollapse<CR>')
+vim.keymap.set('n', '<space>f', ':FZF<CR>')
+vim.keymap.set('n', '<space>s', ':w<Enter>')
 vim.keymap.set('n', '<space>wq', ':wq<Enter>')
 vim.keymap.set('n', '<space>q', ':q<Enter>')
 vim.keymap.set('v', '<space>c', '"*y')
-vim.keymap.set('n', '<space>s', ':Ack ')
+vim.keymap.set('n', '<leader>s', ':Ack ')
 vim.keymap.set('n', '<space>;', 'A;<Esc>')
 vim.keymap.set('n', '<C-j>', '10j')
 vim.keymap.set('n', '<C-k>', '10k')
@@ -58,4 +57,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', '<space>t', function() require('jdtls').test_nearest_method() end, opts)
 	end,
 })
-
