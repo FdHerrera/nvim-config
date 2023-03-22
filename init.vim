@@ -81,10 +81,12 @@ nnoremap <C-k> 10k
 "Setters
 syntax on
 set guifont=Fira\ Code
-colorscheme nightfox
+colorscheme carbonfox
+set nocursorline 
 set rnu nu 
-set cursorline
+hi Normal guibg=NONE ctermbg=NONE
 set showmatch
+set termguicolors
 
 nmap <silent> <leader>t :TestNearest<CR>
 nmap <silent> <leader>T :TestFile<CR>
