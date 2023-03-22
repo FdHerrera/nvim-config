@@ -47,36 +47,6 @@ set updatetime=300
 " diagnostics appear/become resolved.
 set signcolumn=yes
 
-" NERDTree tabs
-nnoremap <space>l gt<CR>
-nnoremap <space>h gT<CR>
-" Switchs pane
-nmap <space>w <C-w>w
-
-" Finder
-nnoremap <leader>f :FZF<Enter>
-
-" Saves 
-nnoremap <space>s :w<Enter>
-
-" Saves and quits
-nnoremap <space>e :wq<Enter>
-
-" Quits
-nnoremap <space>q :q<Enter>
-
-" Copy to clipboard
-vmap <space>c "*y
-
-" Searchs with Ack
-nnoremap <leader>s :Ack<space>
-
-" Inserts a semicolon at the end of the line
-nnoremap <space>; A;<Esc>
-
-nnoremap <C-j> 10j
-nnoremap <C-k> 10k
-
 "Setters
 syntax on
 set guifont=Fira\ Code
@@ -86,12 +56,6 @@ set rnu nu
 hi Normal guibg=NONE ctermbg=NONE
 set showmatch
 set termguicolors
-
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
 
 lua require('init')
 

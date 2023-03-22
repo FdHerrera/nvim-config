@@ -1,4 +1,20 @@
--- Global mappings.
+-- Global mappings -- 
+vim.keymap.set('n', '<space>nt', '<cmd>:NvimTreeToggle<CR>')
+vim.keymap.set('n', '<space>nT', '<cmd>:NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<space>c', '<cmd>:NvimTreeCollapse<CR>')
+vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
+vim.keymap.set('n', '<space>w', '<C-w>w')
+vim.keymap.set('n', '<space>w', ':w<Enter>')
+vim.keymap.set('n', '<space>wq', ':wq<Enter>')
+vim.keymap.set('n', '<space>q', ':q<Enter>')
+vim.keymap.set('v', '<space>c', '"*y')
+vim.keymap.set('n', '<space>s', ':Ack ')
+vim.keymap.set('n', '<space>;', 'A;<Esc>')
+vim.keymap.set('n', '<C-j>', '10j')
+vim.keymap.set('n', '<C-k>', '10k')
+-- Finish Global Mappings --
+
+
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -43,9 +59,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
 	end,
 })
 
-vim.keymap.set('n', '<space>nt', '<cmd>:NvimTreeToggle<CR>')
-vim.keymap.set('n', '<space>nT', '<cmd>:NvimTreeFindFile<CR>')
-vim.keymap.set('n', '<space>c', '<cmd>:NvimTreeCollapse<CR>')
-vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
-
-vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
