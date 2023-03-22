@@ -7,33 +7,45 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
+	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+	callback = function(ev)
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf }
+		vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+		vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+		vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+		vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+		vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+		vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+		vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set('n', '<space>wl', function()
+			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		end, opts)
+		vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
+		vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+		vim.keymap.set('n', '<space>f', function()
+			vim.lsp.buf.format { async = true }
+		end, opts)
+		vim.keymap.set('n', '<space>i', function() require('jdtls').organize_imports() end, opts)
+		vim.keymap.set('n', '<space>xv', function() require('jdtls').extract_variable() end, opts)
+		vim.keymap.set('v', '<space>xv', function() require('jdtls').extract_variable() end, opts)
+		vim.keymap.set('n', '<space>xc', function() require('jdtls').extract_constant() end, opts)
+		vim.keymap.set('v', '<space>xc', function() require('jdtls').extract_constant() end, opts)
+		vim.keymap.set('v', '<space>xm', function() require('jdtls').extract_method() end, opts)
 
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-    vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = true }
-    end, opts)
-  end,
+		-- If using nvim-dap
+		-- This requires java-debug and vscode-java-test bundles, see install steps in this README further below.
+		vim.keymap.set('n', '<space>T', function() require('jdtls').test_class() end, opts)
+		vim.keymap.set('n', '<space>t', function() require('jdtls').test_nearest_method() end, opts)
+	end,
 })
 
 vim.keymap.set('n', '<space>nt', '<cmd>:NvimTreeToggle<CR>')
 vim.keymap.set('n', '<space>nT', '<cmd>:NvimTreeFindFile<CR>')
 vim.keymap.set('n', '<space>c', '<cmd>:NvimTreeCollapse<CR>')
+vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')
+
 vim.keymap.set('n', '<space>f', '<cmd>:FZF<CR>')

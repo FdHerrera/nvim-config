@@ -25,7 +25,6 @@ Plug 'mfussenegger/nvim-dap' "Debug
 Plug 'vim-test/vim-test' "Tests Runner
 Plug 'nvim-lua/plenary.nvim'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
-
 call plug#end()
 
 let mapleader = ","

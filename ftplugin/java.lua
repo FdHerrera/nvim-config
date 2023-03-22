@@ -1,10 +1,13 @@
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
-local path_to_lsp_server = jdtls_path .. "/config_win"
-local equinox_launcher_path = jdtls_path .. "/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar"
-local lombok_path = jdtls_path .. "/lombok.jar"
 local java_18_path = os.getenv('JAVA_18');
 local java_17_path = os.getenv('JAVA_17');
+local jdtls_path = vim.fn.stdpath('data') .. "/mason/packages/jdtls"
+local path_to_lsp_server = jdtls_path .. "/config_win"
+local equinox_launcher_path = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar", 1)
+local lombok_path = jdtls_path .. "/lombok.jar"
+local java_debugger = vim.fn.glob(
+	os.getenv('JAVA_DEBUGGER') .. '/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar', 1
+)
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -14,6 +17,10 @@ end
 
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = vim.fn.stdpath('data') .. '/site/java/workspace-root/' .. project_name
+
+-- Bundles for debugging -- 
+local bundles = { java_debugger }
+vim.list_extend(bundles, vim.split(vim.fn.glob(os.getenv('VSCODE_JAVA_TEST') .. "/server/*.jar", 1), "\n"))
 
 -- Main Config
 local config = {
@@ -114,11 +121,12 @@ local config = {
 		allow_incremental_sync = true,
 	},
 	init_options = {
-		bundles = {},
+		bundles = bundles
 	},
 }
 
 config['on_attach'] = function(client, bufnr)
+	require('jdtls').setup_dap({ hodcodereplace = 'auto' })
 	require "lsp_signature".on_attach({
 		bind = true, -- This is mandatory, otherwise border config won't get registered.
 		floating_window_above_cur_line = false,
