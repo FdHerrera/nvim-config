@@ -57,3 +57,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', '<space>t', function() require('jdtls').test_nearest_method() end, opts)
 	end,
 })
+
+-- Debugging mappings --
+vim.keymap.set('n', '<space>b', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<C-n>', function() require('dap').continue() end)
+vim.keymap.set('n', '<C-i>', function() require('dap').step_into() end)
+vim.keymap.set('n', '<C-e>', function() require('dap').repl_open() end)
+
+
