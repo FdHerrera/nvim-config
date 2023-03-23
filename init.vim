@@ -50,7 +50,7 @@ set signcolumn=yes
 "Setters
 syntax on
 set guifont=Fira\ Code
-colorscheme carbonfox
+colorscheme terafox
 set nocursorline 
 set rnu nu 
 hi Normal guibg=NONE ctermbg=NONE
