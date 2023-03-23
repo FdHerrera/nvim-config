@@ -1,6 +1,8 @@
 -- empty setup using defaults
 require("nvim-tree").setup({
-	view = { cursorline = false }
+	renderer = {
+		group_empty = true
+	}
 })
 
 vim.cmd [[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
