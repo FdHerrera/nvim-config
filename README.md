@@ -24,6 +24,11 @@ Setup:
 
 Needs to define 3 Java JDK's in the environment variables: 'JAVA_17', 'JAVA_18', 'JAVA_11' pointing to the source folder of each JDK.
 
+For Java Testing and Debugging:
+Clone and install microsoft/java-debug, define an environment variable named: 'JAVA_DEBUGGER'.
+Clone and install microsoft/vscode-java-test, define an environment variable named: 'VSCODE_JAVA_TEST'.
+
+
 Clone this repo: on windows "$user/AppData/Local/nvim"
 - Install and setup vim-plug for plugins managment.
 - 'npm install -g neovim'
@@ -31,9 +36,4 @@ Clone this repo: on windows "$user/AppData/Local/nvim"
 - Install Vim Plug
 - Run 'Plug Install'
 - Run 'TSUpdate'
-
-For Java Testing and Debugging:
-
-Clone and install microsoft/java-debug, define an environment variable named: 'JAVA_DEBUGGER'
-Clone and install microsoft/vscode-java-test, define an environment variable named: 'VSCODE_JAVA_TEST'
 
