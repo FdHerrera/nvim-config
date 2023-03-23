@@ -5,7 +5,7 @@ Personal configuration for nvim for software development
 Pre-requesites:
 
 - Nvim >= 0.7
-- **npm >= 9.5.1
+- npm >= 9.5.1
 - node >= v19.8.1
 - yarn
 - Windows Terminal with Powershell
@@ -22,14 +22,15 @@ Pre-requesites:
 
 Setup:
 
-Define Environment Variable JAVA_17 pointing to jdk 17 (preferably, also JAVA_11 and JAVA_18)
+Needs to define 3 Java JDK's in the environment variables: 'JAVA_17', 'JAVA_18', 'JAVA_11' pointing to the source folder of each JDK.
 
 Clone this repo: on windows "$user/AppData/Local/nvim"
-- 'npm install -g tree-sitter'
+- Install and setup vim-plug for plugins managment.
 - 'npm install -g neovim'
-Install Vim Plug
-Run 'Plug Install'
-Run 'TSUpdate'
+- 'npm install -g tree-sitter'
+- Install Vim Plug
+- Run 'Plug Install'
+- Run 'TSUpdate'
 
 For Java Testing and Debugging:
 
