@@ -11,6 +11,14 @@ vim.keymap.set('n', '<leader>s', ':Ack ')
 vim.keymap.set('n', '<space>;', 'A;<Esc>')
 vim.keymap.set('n', '<C-j>', '10j')
 vim.keymap.set('n', '<C-k>', '10k')
+
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+vim.keymap.set('x', '<leader>p', "\"_dP")
 -- Finish Global Mappings --
 
 
@@ -63,5 +71,3 @@ vim.keymap.set('n', '<space>b', function() require('dap').toggle_breakpoint() en
 vim.keymap.set('n', '<C-n>', function() require('dap').continue() end)
 vim.keymap.set('n', '<C-i>', function() require('dap').step_into() end)
 vim.keymap.set('n', '<C-e>', function() require('dap').repl_open() end)
-
-
