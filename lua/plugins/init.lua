@@ -7,6 +7,7 @@ require('plugins.tree-sitter-config')
 require('plugins.cmp-config')
 require('plugins.mason-lsp')
 require('plugins.nvim-tree-config')
+require('plugins.harpoon-config')
 
 -- Loads config for Servers --
 require('plugins.servers-config')

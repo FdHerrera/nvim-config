@@ -24,6 +24,7 @@ Plug 'L3MON4D3/LuaSnip' "Snippets
 Plug 'mfussenegger/nvim-dap' "Debug
 Plug 'vim-test/vim-test' "Tests Runner
 Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 call plug#end()
 
