@@ -103,7 +103,16 @@ local config = {
 				"org"
 			},
 		},
-		extendedClientCapabilities = require('plugins.utils').getCapabilities(),
+		extendedClientCapabilities = {
+			require('plugins.utils').getCapabilities(),
+			advancedExtractRefactoringSupport = true,
+			advancedOrganizeImportsSupport = true,
+			classFileContentsSupport = true,
+			generateConstructorsPromptSupport = true,
+			generateDelegateMethodsPromptSupport = true,
+			generateToStringPromptSupport = true,
+			hashCodeEqualsPromptSupport = true
+		},
 		sources = {
 			organizeImports = {
 				starThreshold = 9999,

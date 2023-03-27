@@ -1,3 +1,6 @@
+local mark = require('harpoon.mark')
+local harpoon = require('harpoon.ui')
+
 -- Global mappings --
 vim.keymap.set('n', '<space>nt', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<space>nT', ':NvimTreeFindFile<CR>')
@@ -19,6 +22,13 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
 vim.keymap.set('x', '<leader>p', "\"_dP")
+
+vim.keymap.set('n', '<C-a>', mark.add_file)
+vim.keymap.set('n', '<C-m>', harpoon.toggle_quick_menu)
+vim.keymap.set('n', '<C-1>', function() harpoon.nav_file(1) end)
+vim.keymap.set('n', '<C-2>', function() harpoon.nav_file(2) end)
+vim.keymap.set('n', '<C-3>', function() harpoon.nav_file(3) end)
+vim.keymap.set('n', '<C-4>', function() harpoon.nav_file(4) end)
 -- Finish Global Mappings --
 
 
