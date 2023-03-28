@@ -23,6 +23,7 @@ Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' "Snippets
 Plug 'mfussenegger/nvim-dap' "Debug
 Plug 'vim-test/vim-test' "Tests Runner
+Plug 'mhartington/formatter.nvim' "Formatter
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'

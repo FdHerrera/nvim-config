@@ -8,6 +8,7 @@ require('plugins.cmp-config')
 require('plugins.mason-lsp')
 require('plugins.nvim-tree-config')
 require('plugins.harpoon-config')
+require('plugins.formatter-config')
 
 -- Loads config for Servers --
 require('plugins.servers-config')
