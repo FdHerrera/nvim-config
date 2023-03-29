@@ -19,6 +19,8 @@ Pre-requesites:
 - pynvim
 - C runner (on windows, preferable 'cc')
 - maven
+- clang-format
+- sed
 
 Setup:
 
