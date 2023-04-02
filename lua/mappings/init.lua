@@ -23,12 +23,12 @@ vim.keymap.set('n', 'N', 'Nzzzv')
 
 vim.keymap.set('x', '<leader>p', "\"_dP")
 
-vim.keymap.set('n', '<C-a>', mark.add_file)
-vim.keymap.set('n', '<C-m>', harpoon.toggle_quick_menu)
-vim.keymap.set('n', '<C-1>', function() harpoon.nav_file(1) end)
-vim.keymap.set('n', '<C-2>', function() harpoon.nav_file(2) end)
-vim.keymap.set('n', '<C-3>', function() harpoon.nav_file(3) end)
-vim.keymap.set('n', '<C-4>', function() harpoon.nav_file(4) end)
+vim.keymap.set('n', '<space>a', mark.add_file)
+vim.keymap.set('n', '<space>hm', harpoon.toggle_quick_menu)
+vim.keymap.set('n', '<space>1', function() harpoon.nav_file(1) end)
+vim.keymap.set('n', '<space>2', function() harpoon.nav_file(2) end)
+vim.keymap.set('n', '<space>3', function() harpoon.nav_file(3) end)
+vim.keymap.set('n', '<space>4', function() harpoon.nav_file(4) end)
 -- Finish Global Mappings --
 
 
