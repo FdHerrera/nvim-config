@@ -27,6 +27,7 @@ Plug 'mhartington/formatter.nvim' "Formatter
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
 Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
+Plug 'udalov/kotlin-vim'
 call plug#end()
 
 let mapleader = ","
