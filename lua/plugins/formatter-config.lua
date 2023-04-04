@@ -1,4 +1,5 @@
 -- Utilities for creating configurations
+local defaults = require "formatter.defaults"
 local util = require "formatter.util"
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
@@ -39,6 +40,7 @@ require("formatter").setup {
 			-- "java" filetype
 			require("formatter.filetypes.java").clangformat
 		},
+		vue = { util.withl(defaults.eslint_d, "vue") },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {

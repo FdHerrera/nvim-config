@@ -59,9 +59,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end, opts)
 		vim.keymap.set('n', '<space>r', vim.lsp.buf.rename, opts)
 		vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-		vim.keymap.set('n', '<space>F', function()
-			vim.lsp.buf.format { async = true }
-		end, opts)
+		vim.keymap.set('n', '<space>F', ":Format<CR>", opts)
+		vim.keymap.set('v', '<space>F', ":Format<CR>", opts)
 		vim.keymap.set('n', '<space>i', function() require('jdtls').organize_imports() end, opts)
 		vim.keymap.set('n', '<space>xv', function() require('jdtls').extract_variable() end, opts)
 		vim.keymap.set('v', '<space>xv', function() require('jdtls').extract_variable() end, opts)
