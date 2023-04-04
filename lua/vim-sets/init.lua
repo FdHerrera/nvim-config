@@ -1,4 +1,4 @@
-vim.g.mapleader = ','
+vim.g.mapleader = ","
 
 local set = vim.opt
 
@@ -17,7 +17,7 @@ set.smartindent = true
 set.backup = false
 set.writebackup = false
 
-set.signcolumn = 'yes'
+set.signcolumn = "yes"
 
 -- Current lumber line and relative up and down
 set.nu = true
@@ -34,7 +34,7 @@ set.wrap = false
 set.updatetime = 50
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme('nightfox')
-set.guifont = 'Fira Code'
-vim.api.nvim_set_hl(0, "Normal", { bg = 'None', ctermbg = 'None' })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'None', ctermbg = 'None' })
+vim.cmd.colorscheme("nightfox")
+set.guifont = "Fira Code"
+vim.api.nvim_set_hl(0, "Normal", { bg = "None", ctermbg = "None" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", ctermbg = "None" })

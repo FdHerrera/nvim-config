@@ -1,11 +1,11 @@
-require('nvim-treesitter.install').prefer_git = true
-require('nvim-treesitter.install').compilers = { "cc" }
-require('nvim-treesitter.configs').setup {
+require("nvim-treesitter.install").prefer_git = true
+require("nvim-treesitter.install").compilers = { "cc" }
+require("nvim-treesitter.configs").setup({
 
 	sync_install = false,
 	highlight = {
 		enable = true,
-		disable = { "c", "rust" }
+		disable = { "c", "rust" },
 	},
 	incremental_selection = {
 		enable = true,
@@ -14,10 +14,10 @@ require('nvim-treesitter.configs').setup {
 			node_incremental = "grn",
 			scope_incremental = "grc",
 			node_decremental = "grm",
-		}
+		},
 	},
 	indent = {
-		enable = true
+		enable = true,
 	},
-	textobjects = { enable = true }
-}
+	textobjects = { enable = true },
+})

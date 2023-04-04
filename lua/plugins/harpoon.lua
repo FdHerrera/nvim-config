@@ -1,2 +1,1 @@
-require('harpoon').setup()
-
+require("harpoon").setup()

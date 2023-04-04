@@ -1,15 +1,15 @@
-local lspconfig = require('lspconfig')
-local cmp_capabilities = require('plugins.utils').getCapabilities()
-lspconfig.lua_ls.setup {
+local lspconfig = require("lspconfig")
+local cmp_capabilities = require("plugins.utils").getCapabilities()
+lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
 			runtime = {
-				path = lspconfig.util.find_git_ancestor()
+				path = lspconfig.util.find_git_ancestor(),
 			},
 			diagnostics = {
-				globals = { 'vim' }
-			}
-		}
+				globals = { "vim" },
+			},
+		},
 	},
-	capabilities = cmp_capabilities
-}
+	capabilities = cmp_capabilities,
+})

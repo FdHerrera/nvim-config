@@ -1,9 +1,9 @@
 -- Utilities for creating configurations
-local defaults = require "formatter.defaults"
-local util = require "formatter.util"
+local defaults = require("formatter.defaults")
+local util = require("formatter.util")
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-require("formatter").setup {
+require("formatter").setup({
 	-- All formatter configurations are opt-in
 	filetype = {
 		-- Formatter configurations for filetype "lua" go here
@@ -33,12 +33,12 @@ require("formatter").setup {
 					},
 					stdin = true,
 				}
-			end
+			end,
 		},
 		java = {
 			-- "formatter.filetypes.java" defines default configurations for the
 			-- "java" filetype
-			require("formatter.filetypes.java").clangformat
+			require("formatter.filetypes.java").clangformat,
 		},
 		vue = { util.withl(defaults.eslint_d, "vue") },
 		-- Use the special "*" filetype for defining formatter configurations on
@@ -46,8 +46,7 @@ require("formatter").setup {
 		["*"] = {
 			-- "formatter.filetypes.any" defines default configurations for any
 			-- filetype
-			require("formatter.filetypes.any").remove_trailing_whitespace
-		}
-	}
-}
-
+			require("formatter.filetypes.any").remove_trailing_whitespace,
+		},
+	},
+})
