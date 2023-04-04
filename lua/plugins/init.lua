@@ -3,12 +3,12 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Loads Plugins Specific Config --
-require('plugins.tree-sitter-config')
-require('plugins.cmp-config')
+require('plugins.treesitter')
+require('plugins.cmp')
 require('plugins.mason-lsp')
-require('plugins.nvim-tree-config')
-require('plugins.harpoon-config')
-require('plugins.formatter-config')
+require('plugins.nvimtree')
+require('plugins.harpoon')
+require('plugins.formatter')
 
 -- Loads config for Servers --
-require('plugins.servers-config')
+require('plugins.lspservers')

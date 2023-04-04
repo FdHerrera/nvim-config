@@ -30,8 +30,5 @@ Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
 Plug 'udalov/kotlin-vim'
 call plug#end()
 
-"Setters
-syntax on
-
 lua require('init')
 
