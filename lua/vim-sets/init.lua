@@ -1,3 +1,5 @@
+vim.g.mapleader = ','
+
 local set = vim.opt
 
 -- Tabs
@@ -36,6 +38,3 @@ vim.cmd.colorscheme('nightfox')
 set.guifont = 'Fira Code'
 vim.api.nvim_set_hl(0, "Normal", { bg = 'None', ctermbg = 'None' })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = 'None', ctermbg = 'None' })
-
--- Maps leader
-vim.g.mapleader = ","

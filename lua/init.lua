@@ -1,9 +1,9 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+require('vim-sets')
 require('plugins')
 require('mappings')
-require('vim-sets')
 
 local function open_tree()
 	require('nvim-tree.api').tree.open()
