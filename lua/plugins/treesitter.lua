@@ -1,11 +1,21 @@
 require("nvim-treesitter.install").prefer_git = true
 require("nvim-treesitter.install").compilers = { "cc" }
 require("nvim-treesitter.configs").setup({
-
+	ensure_installed = {
+		"help",
+		"html",
+		"css",
+		"javascript",
+		"vue",
+		"java",
+		"typescript",
+		"c",
+		"lua",
+		"vim",
+	},
 	sync_install = false,
 	highlight = {
 		enable = true,
-		disable = { "c", "rust" },
 	},
 	incremental_selection = {
 		enable = true,
@@ -20,4 +30,5 @@ require("nvim-treesitter.configs").setup({
 		enable = true,
 	},
 	textobjects = { enable = true },
+	additional_vim_regex_highlighting = false,
 })
