@@ -2,9 +2,7 @@ local mark = require("harpoon.mark")
 local harpoon = require("harpoon.ui")
 
 -- Global mappings --
-vim.keymap.set("n", "<space>nt", ":NvimTreeToggle<CR>")
-vim.keymap.set("n", "<space>nT", ":NvimTreeFindFile<CR>")
-vim.keymap.set("n", "<space>c", "NvimTreeCollapse<CR>")
+vim.keymap.set("n", "<space>e", vim.cmd.Ex)
 vim.keymap.set("n", "<space>f", ":FZF<CR>")
 vim.keymap.set("n", "<space>s", ":w<Enter>")
 vim.keymap.set("n", "<space>wq", ":wq<Enter>")
@@ -40,7 +38,7 @@ end)
 -- Finish Global Mappings --
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
+vim.keymap.set("n", "<space>k", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 
@@ -111,3 +109,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end)
 	end,
 })
+
+-- Fugitive Mappings
+require("plugins.fugitive").mappings()
+
+-- Netrw mappings
+require("mappings.netrw")

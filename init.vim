@@ -9,7 +9,6 @@ Plug 'junegunn/fzf' "File Finder
 Plug 'junegunn/fzf.vim' "File Finder
 Plug 'yggdroot/indentline' "Highligth indentation
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
-Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'https://github.com/airblade/vim-gitgutter' "Git changes
 Plug 'mileszs/ack.vim' "File Content Searcher
@@ -25,9 +24,10 @@ Plug 'mfussenegger/nvim-dap' "Debug
 Plug 'vim-test/vim-test' "Tests Runner
 Plug 'mhartington/formatter.nvim' "Formatter
 Plug 'nvim-lua/plenary.nvim'
-Plug 'ThePrimeagen/harpoon'
-Plug 'https://github.com/jose-elias-alvarez/null-ls.nvim'
-Plug 'udalov/kotlin-vim'
+Plug 'ThePrimeagen/harpoon' "Navigation
+Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
+Plug 'udalov/kotlin-vim' "Kotlin
+Plug 'tpope/vim-fugitive' "Git Integration
 call plug#end()
 
 lua require('init')
