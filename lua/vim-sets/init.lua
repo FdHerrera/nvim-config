@@ -2,11 +2,6 @@ vim.g.mapleader = ","
 
 local set = vim.opt
 
--- Tabs
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
-
 -- Min Up and Down
 set.scrolloff = 8
 
