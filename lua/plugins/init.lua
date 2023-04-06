@@ -1,4 +1,5 @@
 -- Loads Plugins Specific Config --
+require("plugins.theme")
 require("plugins.treesitter")
 require("plugins.cmp")
 require("plugins.mason-lsp")

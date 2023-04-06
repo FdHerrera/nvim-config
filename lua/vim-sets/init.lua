@@ -29,7 +29,6 @@ set.wrap = false
 set.updatetime = 50
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme("night-owl")
 set.guifont = "Fira Code"
 
 --Eventually uncomment this to remove the help for netrw

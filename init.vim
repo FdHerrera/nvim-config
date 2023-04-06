@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'oxfist/night-owl.nvim' "Theme
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' } "Theme
 Plug 'nvim-lualine/lualine.nvim' "Status bar
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents
 Plug 'jiangmiao/auto-pairs' "Pairing
@@ -26,6 +26,7 @@ Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
 Plug 'udalov/kotlin-vim' "Kotlin
 Plug 'tpope/vim-fugitive' "Git Integration
 Plug 'nvim-lua/plenary.nvim'
+Plug 'HiPhish/nvim-ts-rainbow2'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 call plug#end()
 lua require('init')
