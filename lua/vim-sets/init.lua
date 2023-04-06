@@ -31,8 +31,6 @@ set.updatetime = 50
 vim.o.termguicolors = true
 vim.cmd.colorscheme("duskfox")
 set.guifont = "Fira Code"
-vim.api.nvim_set_hl(0, "Normal", { bg = "None", ctermbg = "None" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", ctermbg = "None" })
 
 --Eventually uncomment this to remove the help for netrw
 --vim.g.netrw_banner = 0
