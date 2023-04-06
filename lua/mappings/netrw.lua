@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("filetype", {
 		bind("r", "R")
 		-- Enter file
 		bind("o", "<cr>")
+		-- Go Up
+		bind("u", "-")
 
 		--------------
 		-- Mappings --

@@ -66,6 +66,33 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
 		vim.keymap.set("n", "<space>F", ":Format<CR>", opts)
 		vim.keymap.set("v", "<space>F", ":Format<CR>", opts)
+
+		MapJavaKeys(opts)
+
+		-- Debugging mappings --
+		vim.keymap.set("n", "<space>b", function()
+			require("dap").toggle_breakpoint()
+		end)
+		vim.keymap.set("n", "<C-n>", function()
+			require("dap").continue()
+		end)
+		vim.keymap.set("n", "<C-i>", function()
+			require("dap").step_into()
+		end)
+		vim.keymap.set("n", "<C-e>", function()
+			require("dap").repl_open()
+		end)
+	end,
+})
+
+-- Maps some keys in case the buffer is a java file
+function MapJavaKeys(opts)
+	local buffer_file_name = vim.api.nvim_buf_get_name(0)
+	local java_file = ".java"
+	if buffer_file_name == nil then
+		return
+	end
+	if buffer_file_name:sub(-string.len(java_file)) == java_file then
 		vim.keymap.set("n", "<space>i", function()
 			require("jdtls").organize_imports()
 		end, opts)
@@ -93,22 +120,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<space>t", function()
 			require("jdtls").test_nearest_method()
 		end, opts)
-
-		-- Debugging mappings --
-		vim.keymap.set("n", "<space>b", function()
-			require("dap").toggle_breakpoint()
-		end)
-		vim.keymap.set("n", "<C-n>", function()
-			require("dap").continue()
-		end)
-		vim.keymap.set("n", "<C-i>", function()
-			require("dap").step_into()
-		end)
-		vim.keymap.set("n", "<C-e>", function()
-			require("dap").repl_open()
-		end)
-	end,
-})
+	end
+end
 
 -- Fugitive Mappings
 require("plugins.fugitive").mappings()
