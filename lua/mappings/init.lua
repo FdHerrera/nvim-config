@@ -2,11 +2,11 @@ local mark = require("harpoon.mark")
 local harpoon = require("harpoon.ui")
 
 -- Global mappings --
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<space>f', builtin.find_files, {})
-vim.keymap.set('n', '<space>S', builtin.live_grep, {})
-vim.keymap.set('n', '<space>fb', builtin.buffers, {})
-vim.keymap.set('n', '<space>fh', builtin.help_tags, {})
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<space>f", builtin.find_files, {})
+vim.keymap.set("n", "<space>S", builtin.live_grep, {})
+vim.keymap.set("n", "<space>fb", builtin.buffers, {})
+vim.keymap.set("n", "<space>fh", builtin.help_tags, {})
 
 vim.keymap.set("n", "<space>e", vim.cmd.Ex)
 vim.keymap.set("n", "<space>s", ":w<Enter>")
