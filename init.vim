@@ -5,10 +5,8 @@ Plug 'lukas-reineke/indent-blankline.nvim' "Indents
 Plug 'jiangmiao/auto-pairs' "Pairing
 Plug 'alvan/vim-closetag' "Tags closer
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } "Prettier
-Plug 'junegunn/fzf' "File Finder
-Plug 'junegunn/fzf.vim' "File Finder
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
-Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons' "Icons
 Plug 'https://github.com/airblade/vim-gitgutter' "Git changes
 Plug 'mileszs/ack.vim' "File Content Searcher
 Plug 'williamboman/mason.nvim' "Servers Admin
@@ -27,7 +25,8 @@ Plug 'ThePrimeagen/harpoon' "Navigation
 Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
 Plug 'udalov/kotlin-vim' "Kotlin
 Plug 'tpope/vim-fugitive' "Git Integration
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 call plug#end()
-
 lua require('init')
 

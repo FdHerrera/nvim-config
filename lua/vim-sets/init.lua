@@ -29,7 +29,7 @@ set.wrap = false
 set.updatetime = 50
 
 vim.o.termguicolors = true
-vim.cmd.colorscheme("nightfox")
+vim.cmd.colorscheme("duskfox")
 set.guifont = "Fira Code"
 vim.api.nvim_set_hl(0, "Normal", { bg = "None", ctermbg = "None" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", ctermbg = "None" })
