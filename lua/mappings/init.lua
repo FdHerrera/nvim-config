@@ -3,10 +3,18 @@ local harpoon = require("harpoon.ui")
 
 -- Global mappings --
 local builtin = require("telescope.builtin")
+-- Telescope commands --
 vim.keymap.set("n", "<space>f", builtin.find_files, {})
 vim.keymap.set("n", "<space>S", builtin.live_grep, {})
 vim.keymap.set("n", "<space>fb", builtin.buffers, {})
 vim.keymap.set("n", "<space>fh", builtin.help_tags, {})
+-- Telescope commands --
+
+-- Git commands --
+vim.keymap.set("n", "<space>gpush", ":Git push<CR>", {})
+vim.keymap.set("n", "<space>gpull", ":Git pull<CR>", {})
+vim.keymap.set("n", "<space>gadd", ":Git add %<CR>", {})
+-- Git commands --
 
 vim.keymap.set("n", "<space>e", vim.cmd.Ex)
 vim.keymap.set("n", "<space>s", ":w<Enter>")
