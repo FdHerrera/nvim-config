@@ -1,13 +1,12 @@
 call plug#begin()
 Plug 'EdenEast/nightfox.nvim' "Theme
-Plug 'maximbaz/lightline-ale' "Status Bar Theme
-Plug 'itchyny/lightline.vim' "Status Bar
+Plug 'nvim-lualine/lualine.nvim' "Status bar
+Plug 'lukas-reineke/indent-blankline.nvim' "Indents
 Plug 'jiangmiao/auto-pairs' "Pairing
 Plug 'alvan/vim-closetag' "Tags closer
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } "Prettier
 Plug 'junegunn/fzf' "File Finder
 Plug 'junegunn/fzf.vim' "File Finder
-Plug 'yggdroot/indentline' "Highligth indentation
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'https://github.com/airblade/vim-gitgutter' "Git changes
