@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'EdenEast/nightfox.nvim' "Theme
+Plug 'oxfist/night-owl.nvim' "Theme
 Plug 'nvim-lualine/lualine.nvim' "Status bar
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents
 Plug 'jiangmiao/auto-pairs' "Pairing
