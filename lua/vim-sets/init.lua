@@ -33,3 +33,7 @@ set.guifont = "Fira Code"
 
 --Eventually uncomment this to remove the help for netrw
 --vim.g.netrw_banner = 0
+
+--Adds personal mappings help file
+local docs_location = vim.fn.stdpath("config") .. "/doc"
+vim.cmd("helptags " .. docs_location)

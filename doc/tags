@@ -1,0 +1,7 @@
+my-mappings-debug	my-mappings.txt	/*my-mappings-debug*
+my-mappings-files	my-mappings.txt	/*my-mappings-files*
+my-mappings-git	my-mappings.txt	/*my-mappings-git*
+my-mappings-harpoon	my-mappings.txt	/*my-mappings-harpoon*
+my-mappings-lsp	my-mappings.txt	/*my-mappings-lsp*
+my-mappings-moves	my-mappings.txt	/*my-mappings-moves*
+my-mappings-telescope	my-mappings.txt	/*my-mappings-telescope*
