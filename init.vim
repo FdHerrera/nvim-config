@@ -23,6 +23,9 @@ Plug 'udalov/kotlin-vim' "Kotlin
 
 " Autocompletion 
 Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
+Plug 'hrsh7th/cmp-buffer' " LSP source for nvim-cmp
+Plug 'hrsh7th/cmp-path' " LSP source for nvim-cmp
+Plug 'hrsh7th/cmp-nvim-lua' " LSP source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp' " LSP source for nvim-cmp
 Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' "Snippets
