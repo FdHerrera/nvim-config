@@ -29,7 +29,8 @@ Plug 'hrsh7th/cmp-nvim-lua' " LSP source for nvim-cmp
 Plug 'hrsh7th/cmp-nvim-lsp' " LSP source for nvim-cmp
 Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' "Snippets
-Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/plenary.nvim' "Base
+Plug 'numToStr/Comment.nvim' "Comment
 " Autocompletion
 
 " Debugging
