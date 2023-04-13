@@ -87,3 +87,7 @@ Debugging Mappings                               *my-mappings-debug*
 <leader>si           ->        Step into
 <leader>sn           ->        Step over
 <leader>ods          ->        Open debugging state
+<leader>dh           ->        Hover state under the cursor
+<leader>dp           ->        Preview
+<leader>df           ->        Opens frames
+<leader>ds           ->        Opens scopes
