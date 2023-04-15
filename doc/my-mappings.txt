@@ -6,7 +6,8 @@ my-mappings.txt		Personal mappings defined so far
 4. Git                                              |my-mappings-git|
 5. Harpoon                                          |my-mappings-harpoon|
 6. General LSP                                      |my-mappings-lsp|
-7. Debugging                                        |my-mappings-debug|
+7. Java                                             |my-mappings-java|
+8. Debugging                                        |my-mappings-debug|
 
 ===========================================================================
 
@@ -77,6 +78,17 @@ gr                 ->        List references on horizontal split
 <space>ca          ->        List available code actions
 <space>F           ->        On normal mode, formats the file
 <space>F           ->        On visual mode, formats the selected
+
+---------------------------------------------------------------------------
+
+Java Development Mappings                       *my-mappings-java*
+
+<space>i             ->        Organices imports
+<space>xv            ->        Extracs to a variable
+<space>xc            ->        Extracts to a constant
+<space>xm            ->        Extracts method
+<space>T             ->        Runs test file
+<space>t             ->        Runs nearest test method
 
 ---------------------------------------------------------------------------
 
