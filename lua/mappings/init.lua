@@ -153,7 +153,7 @@ function MapJavaKeys(opts)
 end
 
 -- Fugitive Mappings
-require("plugins.fugitive").mappings()
+require("after.plugin.fugitive").mappings()
 
 -- Netrw mappings
 require("mappings.netrw")

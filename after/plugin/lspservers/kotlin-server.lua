@@ -1,4 +1,4 @@
-local cmp_capabilities = require("plugins.utils").getCapabilities()
+local cmp_capabilities = require("utils").getCapabilities()
 local lspconfig = require("lspconfig")
 
 lspconfig.kotlin_language_server.setup({
