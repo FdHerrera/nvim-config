@@ -110,7 +110,7 @@ local config = {
 			},
 		},
 		extendedClientCapabilities = {
-			require("plugins.utils").getCapabilities(),
+			require("utils").getCapabilities(),
 			advancedExtractRefactoringSupport = true,
 			advancedOrganizeImportsSupport = true,
 			classFileContentsSupport = true,
