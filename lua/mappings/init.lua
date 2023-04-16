@@ -2,12 +2,12 @@ local mark = require("harpoon.mark")
 local harpoon = require("harpoon.ui")
 
 -- Global mappings --
-local builtin = require("telescope.builtin")
+local telescope = require("telescope.builtin")
 -- Telescope commands --
-vim.keymap.set("n", "<space>f", builtin.find_files, {})
-vim.keymap.set("n", "<space>S", builtin.live_grep, {})
-vim.keymap.set("n", "<space>fb", builtin.buffers, {})
-vim.keymap.set("n", "<space>fh", builtin.help_tags, {})
+vim.keymap.set("n", "<space>f", telescope.find_files, {})
+vim.keymap.set("n", "<space>S", telescope.live_grep, {})
+vim.keymap.set("n", "<space>fb", telescope.buffers, {})
+vim.keymap.set("n", "<space>fh", telescope.help_tags, {})
 -- Telescope commands --
 
 -- Git commands --
@@ -35,18 +35,11 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 vim.keymap.set("n", "<space>a", mark.add_file)
 vim.keymap.set("n", "<space>hm", harpoon.toggle_quick_menu)
-vim.keymap.set("n", "<space>1", function()
-	harpoon.nav_file(1)
-end)
-vim.keymap.set("n", "<space>2", function()
-	harpoon.nav_file(2)
-end)
-vim.keymap.set("n", "<space>3", function()
-	harpoon.nav_file(3)
-end)
-vim.keymap.set("n", "<space>4", function()
-	harpoon.nav_file(4)
-end)
+for i = 1, 9 do
+    vim.keymap.set("n", "<space>" .. i, function()
+        harpoon.nav_file(i)
+    end)
+end
 -- Finish Global Mappings --
 
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
