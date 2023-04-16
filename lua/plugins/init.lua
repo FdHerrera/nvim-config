@@ -9,6 +9,7 @@ require("plugins.fugitive")
 require("plugins.lualine")
 require("plugins.indent-blankline")
 require("plugins.comment")
+require("plugins.autopairs")
 
 -- Loads config for Servers --
 require("plugins.lspservers")

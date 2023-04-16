@@ -3,7 +3,7 @@ call plug#begin()
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' } "Theme
 Plug 'nvim-lualine/lualine.nvim' "Status bar
 Plug 'lukas-reineke/indent-blankline.nvim' "Indents
-Plug 'jiangmiao/auto-pairs' "Pairing
+Plug 'windwp/nvim-autopairs' "Pairing
 Plug 'alvan/vim-closetag' "Tags closer
 Plug 'prettier/vim-prettier', { 'do': 'npm install' } "Prettier
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
