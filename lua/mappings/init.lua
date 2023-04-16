@@ -11,6 +11,7 @@ vim.keymap.set("n", "<space>fh", telescope.help_tags, {})
 -- Telescope commands --
 
 -- Git commands --
+vim.keymap.set("n", "<space>gs", vim.cmd.Git)
 vim.keymap.set("n", "<space>gpush", ":Git push<CR>", {})
 vim.keymap.set("n", "<space>gpull", ":Git pull<CR>", {})
 vim.keymap.set("n", "<space>gadd", ":Git add %<CR>", {})
