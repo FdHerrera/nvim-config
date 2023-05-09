@@ -20,6 +20,7 @@ require("mason-lspconfig").setup(
 			"yamlls",
 			"graphql",
 			"kotlin_language_server",
+                        "gradle_ls"
 		},
 		autostart = true,
 	}
