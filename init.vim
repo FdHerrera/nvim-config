@@ -40,6 +40,7 @@ Plug 'vim-test/vim-test' "Tests Runner
 Plug 'mhartington/formatter.nvim' "Formatter
 Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
 Plug 'microsoft/vscode-js-debug', { 'do': 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist ou' } "Js debugger
+Plug 'mxsdev/nvim-dap-vscode-js'
 " Debugging
 
 "Navigation
