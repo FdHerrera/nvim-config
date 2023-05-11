@@ -12,6 +12,9 @@ require("nvim-treesitter.configs").setup({
 		"c",
 		"lua",
 		"vim",
+		"dockerfile",
+		"json",
+		"yaml",
 	},
 	sync_install = false,
 	highlight = {
