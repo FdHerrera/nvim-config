@@ -16,7 +16,7 @@ vim.keymap.set("n", "<space>gpush", ":Git push<CR>", {})
 vim.keymap.set("n", "<space>gpull", ":Git pull<CR>", {})
 vim.keymap.set("n", "<space>gadd", ":Git add %<CR>", {})
 -- Git commands --
-
+vim.keymap.set("n", "<space>vs", ":vert sb<CR>")
 vim.keymap.set("n", "<space>e", vim.cmd.Ex)
 vim.keymap.set("n", "<space>s", ":w<Enter>")
 vim.keymap.set("n", "<space>wq", ":wq<Enter>")
@@ -25,6 +25,8 @@ vim.keymap.set("v", "<space>c", '"*y')
 vim.keymap.set("n", "<space>;", "A;<Esc>")
 vim.keymap.set("n", "<C-j>", "10j")
 vim.keymap.set("n", "<C-k>", "10k")
+vim.keymap.set("n", "<space>F", ":Format<CR>", opts)
+vim.keymap.set("v", "<space>F", ":Format<CR>", opts)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -37,9 +39,9 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 vim.keymap.set("n", "<space>a", mark.add_file)
 vim.keymap.set("n", "<space>hm", harpoon.toggle_quick_menu)
 for i = 1, 9 do
-    vim.keymap.set("n", "<space>" .. i, function()
-        harpoon.nav_file(i)
-    end)
+	vim.keymap.set("n", "<space>" .. i, function()
+		harpoon.nav_file(i)
+	end)
 end
 -- Finish Global Mappings --
 
@@ -70,8 +72,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 		vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<space>F", ":Format<CR>", opts)
-		vim.keymap.set("v", "<space>F", ":Format<CR>", opts)
 
 		MapJavaKeys(opts)
 
@@ -105,6 +105,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			local widgets = require("dap.ui.widgets")
 			widgets.centered_float(widgets.scopes)
 		end)
+		vim.keymap.set("n", "<space>t", ":TestNearest<CR>", opts)
+		vim.keymap.set("n", "<space>T", ":TestClass<CR>", opts)
+		vim.keymap.set("n", "<space>tl", ":TestLast<CR>", opts)
 	end,
 })
 

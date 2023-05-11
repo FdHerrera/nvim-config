@@ -17,6 +17,7 @@ Files Mappings                                   *my-mappings-files*
 <space>s           ->        Saves file
 <space>wq          ->        Saves and quits
 <space>q           ->        Quits
+<space>vs          ->        Opens a vertical split of the current buffer
 
 ---------------------------------------------------------------------------
 
@@ -24,7 +25,6 @@ Moves Mappings                                   *my-mappings-moves*
 
 <C-j>              ->        Moves 10 times down
 <C-k>              ->        Moves 10 times up
-<space>wq          ->        Saves and quits
 <space>q           ->        Quits
 J                  ->        On visual mode, J to move selected block down and autoindent
 K                  ->        On visual mode, K to move selected block up and autoindent
@@ -103,3 +103,6 @@ Debugging Mappings                               *my-mappings-debug*
 <leader>dp           ->        Preview
 <leader>df           ->        Opens frames
 <leader>ds           ->        Opens scopes
+<space>T             ->        Runs test file
+<space>t             ->        Runs nearest test method
+<space>tl            ->        Runs last test method
