@@ -9,6 +9,7 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' } "Prettier
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
 Plug 'nvim-tree/nvim-web-devicons' "Icons
 Plug 'HiPhish/nvim-ts-rainbow2'
+Plug 'toppair/peek.nvim', { 'do': 'deno tast --quiet build:fast'}
 " Style
 
 " Servers and Git
