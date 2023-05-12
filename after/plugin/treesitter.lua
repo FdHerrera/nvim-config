@@ -15,6 +15,13 @@ require("nvim-treesitter.configs").setup({
 		"dockerfile",
 		"json",
 		"yaml",
+		"comment",
+		"css",
+		"git_config",
+		"git_rebase",
+		"gitcommit",
+		"gitignore",
+		"graphql",
 	},
 	sync_install = false,
 	highlight = {

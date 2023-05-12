@@ -2,6 +2,15 @@
 local defaults = require("formatter.defaults")
 local util = require("formatter.util")
 local custom_style = vim.fn.stdpath("config") .. "/styles/custom-style.clang-format"
+local stdin_exe = function(executable)
+	return {
+		exe = executable,
+		args = {
+			"-",
+		},
+		stdin = true,
+	}
+end
 
 -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 require("formatter").setup({
@@ -26,9 +35,11 @@ require("formatter").setup({
 			end,
 		},
 		vue = { util.withl(defaults.eslint_d, "vue") },
-                json = {
-		        require("formatter.filetypes.json").prettier,
-                },
+		json = {
+			require("formatter.filetypes.json").prettier,
+		},
+		xml = { stdin_exe("xmlformat") },
+		yaml = { stdin_exe("yamlfmt") },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
