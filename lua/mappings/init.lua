@@ -25,8 +25,8 @@ vim.keymap.set("v", "<space>c", '"*y')
 vim.keymap.set("n", "<space>;", "A;<Esc>")
 vim.keymap.set("n", "<C-j>", "10j")
 vim.keymap.set("n", "<C-k>", "10k")
-vim.keymap.set("n", "<space>F", ":Format<CR>", opts)
-vim.keymap.set("v", "<space>F", ":Format<CR>", opts)
+vim.keymap.set("n", "<space>F", ":Format<CR>")
+vim.keymap.set("v", "<space>F", ":Format<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -140,10 +140,10 @@ function MapJavaKeys(opts)
 
 		-- If using nvim-dap
 		-- This requires java-debug and vscode-java-test bundles
-		vim.keymap.set("n", "<space>T", function()
+		vim.keymap.set("n", "<space>jT", function()
 			require("jdtls").test_class()
 		end, opts)
-		vim.keymap.set("n", "<space>t", function()
+		vim.keymap.set("n", "<space>jt", function()
 			require("jdtls").test_nearest_method()
 		end, opts)
 	end

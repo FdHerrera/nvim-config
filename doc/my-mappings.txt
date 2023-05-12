@@ -87,8 +87,8 @@ Java Development Mappings                       *my-mappings-java*
 <space>xv            ->        Extracs to a variable
 <space>xc            ->        Extracts to a constant
 <space>xm            ->        Extracts method
-<space>T             ->        Runs test file
-<space>t             ->        Runs nearest test method
+<space>jT            ->        Runs test file
+<space>jt            ->        Runs nearest test method
 
 ---------------------------------------------------------------------------
 
