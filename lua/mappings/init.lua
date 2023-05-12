@@ -140,10 +140,10 @@ function MapJavaKeys(opts)
 
 		-- If using nvim-dap
 		-- This requires java-debug and vscode-java-test bundles
-		vim.keymap.set("n", "<space>jT", function()
+		vim.keymap.set("n", "<space>Tj", function()
 			require("jdtls").test_class()
 		end, opts)
-		vim.keymap.set("n", "<space>jt", function()
+		vim.keymap.set("n", "<space>tj", function()
 			require("jdtls").test_nearest_method()
 		end, opts)
 	end
