@@ -9,15 +9,17 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' } "Prettier
 Plug 'nvim-treesitter/nvim-treesitter' "Tree-Sitter
 Plug 'nvim-tree/nvim-web-devicons' "Icons
 Plug 'HiPhish/nvim-ts-rainbow2'
-Plug 'toppair/peek.nvim', { 'do': 'deno tast --quiet build:fast'}
+Plug 'toppair/peek.nvim', { 'do': 'deno tast --quiet build:fast'} "Readme Reader
+Plug 'nvim-treesitter/nvim-treesitter-context' "Context
+Plug 'mhartington/formatter.nvim' "Formatter
 " Style
 
 " Servers and Git
 Plug 'airblade/vim-gitgutter' "Git changes
 Plug 'tpope/vim-fugitive' "Git Integration
 Plug 'williamboman/mason.nvim' "Servers Admin
-Plug 'williamboman/mason-lspconfig.nvim' "Lsp Config
-Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/mason-lspconfig.nvim' "Lsp Config for Mason
+Plug 'neovim/nvim-lspconfig' "Lsp Config
 Plug 'mfussenegger/nvim-jdtls' "Java Server LSP
 Plug 'udalov/kotlin-vim' "Kotlin
 " Servers and Git
@@ -32,15 +34,14 @@ Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
 Plug 'L3MON4D3/LuaSnip' "Snippets
 Plug 'nvim-lua/plenary.nvim' "Base
 Plug 'numToStr/Comment.nvim' "Comment
+Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
 " Autocompletion
 
 " Debugging
 Plug 'mfussenegger/nvim-dap' "Debug
 Plug 'vim-test/vim-test' "Tests Runner
-Plug 'mhartington/formatter.nvim' "Formatter
-Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
 Plug 'microsoft/vscode-js-debug', { 'do': 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist ou' } "Js debugger
-Plug 'mxsdev/nvim-dap-vscode-js'
+Plug 'mxsdev/nvim-dap-vscode-js'"Js debugger nvim
 " Debugging
 
 "Navigation
