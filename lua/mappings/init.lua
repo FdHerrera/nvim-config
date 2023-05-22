@@ -92,7 +92,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			require("dap").repl.open()
 		end)
 		vim.keymap.set({ "n", "v" }, "<leader>dh", function()
-			require("dap.ui.widgets").hover()
+			require("dapui").eval()
 		end)
 		vim.keymap.set({ "n", "v" }, "<leader>dp", function()
 			require("dap.ui.widgets").preview()

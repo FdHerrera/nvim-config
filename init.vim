@@ -35,10 +35,12 @@ Plug 'L3MON4D3/LuaSnip' "Snippets
 Plug 'nvim-lua/plenary.nvim' "Base
 Plug 'numToStr/Comment.nvim' "Comment
 Plug 'jose-elias-alvarez/null-ls.nvim' "Code Snippets
+Plug 'folke/neodev.nvim'
 " Autocompletion
 
 " Debugging
 Plug 'mfussenegger/nvim-dap' "Debug
+Plug 'rcarriga/nvim-dap-ui' "Debug UI
 Plug 'vim-test/vim-test' "Tests Runner
 Plug 'microsoft/vscode-js-debug', { 'do': 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist ou' } "Js debugger
 Plug 'mxsdev/nvim-dap-vscode-js'"Js debugger nvim
