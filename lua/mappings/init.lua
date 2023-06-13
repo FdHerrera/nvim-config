@@ -50,6 +50,16 @@ vim.keymap.set("n", "<space>k", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 
+-- Gets current filename according to current buffer, returns true if is a file with java extension, false otherwise
+local function is_java_file()
+	local buffer_file_name = vim.api.nvim_buf_get_name(0)
+	local java_file = ".java"
+	if buffer_file_name == nil then
+		return
+	end
+	return buffer_file_name:sub(-string.len(java_file)) == java_file
+end
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -105,20 +115,27 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			local widgets = require("dap.ui.widgets")
 			widgets.centered_float(widgets.scopes)
 		end)
-		vim.keymap.set("n", "<space>t", ":TestNearest<CR>", opts)
-		vim.keymap.set("n", "<space>T", ":TestClass<CR>", opts)
+		vim.keymap.set("n", "<space>t", function()
+			if is_java_file() then
+				require("jdtls").test_nearest_method()
+			else
+				vim.cmd("TestNearest")
+			end
+		end, opts)
+		vim.keymap.set("n", "<space>T", function()
+			if is_java_file() then
+				require("jdtls").test_class()
+			else
+				vim.cmd("TestClass")
+			end
+		end, opts)
 		vim.keymap.set("n", "<space>tl", ":TestLast<CR>", opts)
 	end,
 })
 
 -- Maps some keys in case the buffer is a java file
 function MapJavaKeys(opts)
-	local buffer_file_name = vim.api.nvim_buf_get_name(0)
-	local java_file = ".java"
-	if buffer_file_name == nil then
-		return
-	end
-	if buffer_file_name:sub(-string.len(java_file)) == java_file then
+	if is_java_file() then
 		vim.keymap.set("n", "<space>i", function()
 			require("jdtls").organize_imports()
 		end, opts)
@@ -136,15 +153,6 @@ function MapJavaKeys(opts)
 		end, opts)
 		vim.keymap.set("v", "<space>xm", function()
 			require("jdtls").extract_method()
-		end, opts)
-
-		-- If using nvim-dap
-		-- This requires java-debug and vscode-java-test bundles
-		vim.keymap.set("n", "<space>Tj", function()
-			require("jdtls").test_class()
-		end, opts)
-		vim.keymap.set("n", "<space>tj", function()
-			require("jdtls").test_nearest_method()
 		end, opts)
 	end
 end
