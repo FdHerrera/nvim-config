@@ -22,6 +22,7 @@ require("nvim-treesitter.configs").setup({
 		"gitcommit",
 		"gitignore",
 		"graphql",
+		"go",
 	},
 	sync_install = false,
 	highlight = {

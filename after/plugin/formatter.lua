@@ -40,6 +40,7 @@ require("formatter").setup({
 		},
 		xml = { stdin_exe("xmlformat") },
 		yaml = { stdin_exe("yamlfmt") },
+		go = { require("formatter.filetypes.go").gofumpt },
 		-- Use the special "*" filetype for defining formatter configurations on
 		-- any filetype
 		["*"] = {
