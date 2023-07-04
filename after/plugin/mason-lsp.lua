@@ -24,6 +24,7 @@ require("mason-lspconfig").setup(
 			"docker_compose_language_service",
 			"dockerls",
 			"gradle_ls",
+			"gopls",
 		},
 		autostart = true,
 	}
