@@ -55,6 +55,14 @@ return require("packer").startup(function(use)
 	use({ "mxsdev/nvim-dap-vscode-js" })
 	use({ "ThePrimeagen/harpoon" })
 	use({ "nvim-telescope/telescope.nvim", { tag = "0.1.1" } })
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup({})
+		end,
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end

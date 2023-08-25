@@ -5,12 +5,6 @@ local set = vim.opt
 -- Min Up and Down
 set.scrolloff = 8
 
--- Indent
-set.expandtab = true
-set.smartindent = true
-set.shiftwidth = 4
-set.softtabstop = 4
-
 -- No backup
 set.backup = false
 set.writebackup = false

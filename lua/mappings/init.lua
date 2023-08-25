@@ -1,161 +1,28 @@
-local mark = require("harpoon.mark")
-local harpoon = require("harpoon.ui")
+-- Utility to remap commands using netrw (the default finder for nvim)
+vim.api.nvim_create_autocmd("filetype", {
+	pattern = "netrw",
+	desc = "netrw mappings",
+	callback = function()
+		local bind = function(map, to)
+			vim.keymap.set("n", map, to, { remap = true, buffer = true })
+		end
 
--- Global mappings --
-local telescope = require("telescope.builtin")
--- Telescope commands --
-vim.keymap.set("n", "<space>f", telescope.find_files, {})
-vim.keymap.set("n", "<space>S", telescope.live_grep, {})
-vim.keymap.set("n", "<space>fb", telescope.buffers, {})
-vim.keymap.set("n", "<space>fh", telescope.help_tags, {})
--- Telescope commands --
+		--------------
+		-- Mappings --
+		--------------
 
--- Git commands --
-vim.keymap.set("n", "<space>gs", vim.cmd.Git)
-vim.keymap.set("n", "<space>gpush", ":Git push<CR>", {})
-vim.keymap.set("n", "<space>gpull", ":Git pull<CR>", {})
-vim.keymap.set("n", "<space>gadd", ":Git add %<CR>", {})
--- Git commands --
-vim.keymap.set("n", "<space>vs", ":vert sb<CR>")
-vim.keymap.set("n", "<space>e", vim.cmd.Ex)
-vim.keymap.set("n", "<space>s", ":w<Enter>")
-vim.keymap.set("n", "<space>wq", ":wq<Enter>")
-vim.keymap.set("n", "<space>q", ":q<Enter>")
-vim.keymap.set("v", "<space>c", '"*y')
-vim.keymap.set("n", "<space>;", "A;<Esc>")
-vim.keymap.set("n", "<C-j>", "10j")
-vim.keymap.set("n", "<C-k>", "10k")
-vim.keymap.set("n", "<space>F", ":Format<CR>")
-vim.keymap.set("v", "<space>F", ":Format<CR>")
+		-- Add file
+		bind("a", "%")
+		-- Rename file under the cursor
+		bind("r", "R")
+		-- Enter file
+		bind("o", "<cr>")
+		-- Go Up
+		bind("u", "-")
 
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+		--------------
+		-- Mappings --
+		--------------
 
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
-vim.keymap.set("x", "<leader>p", '"_dP')
-
-vim.keymap.set("n", "<space>a", mark.add_file)
-vim.keymap.set("n", "<space>hm", harpoon.toggle_quick_menu)
-for i = 1, 9 do
-	vim.keymap.set("n", "<space>" .. i, function()
-		harpoon.nav_file(i)
-	end)
-end
--- Finish Global Mappings --
-
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<space>k", vim.diagnostic.open_float)
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-
--- Gets current filename according to current buffer, returns true if is a file with java extension, false otherwise
-local function is_java_file()
-	local buffer_file_name = vim.api.nvim_buf_get_name(0)
-	local java_file = ".java"
-	if buffer_file_name == nil then
-		return
-	end
-	return buffer_file_name:sub(-string.len(java_file)) == java_file
-end
-
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function(ev)
-		-- Buffer local mappings.
-		-- See `:help vim.lsp.*` for documentation on any of the below functions
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		vim.keymap.set("n", "H", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<space>r", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, opts)
-
-		MapJavaKeys(opts)
-
-		-- Debugging mappings --
-		vim.keymap.set("n", "<leader>tb", function()
-			require("dap").toggle_breakpoint()
-		end)
-		vim.keymap.set("n", "<leader>cd", function()
-			require("dap").continue()
-		end)
-		vim.keymap.set("n", "<leader>si", function()
-			require("dap").step_into()
-		end)
-		vim.keymap.set("n", "<leader>sn", function()
-			require("dap").step_over()
-		end)
-		vim.keymap.set("n", "<leader>ods", function()
-			require("dap").repl.open()
-		end)
-		vim.keymap.set({ "n", "v" }, "<leader>dh", function()
-			require("dapui").eval()
-		end)
-		vim.keymap.set({ "n", "v" }, "<leader>dp", function()
-			require("dap.ui.widgets").preview()
-		end)
-		vim.keymap.set("n", "<leader>df", function()
-			local widgets = require("dap.ui.widgets")
-			widgets.centered_float(widgets.frames)
-		end)
-		vim.keymap.set("n", "<Leader>ds", function()
-			local widgets = require("dap.ui.widgets")
-			widgets.centered_float(widgets.scopes)
-		end)
-		vim.keymap.set("n", "<space>t", function()
-			if is_java_file() then
-				require("jdtls").test_nearest_method()
-			else
-				vim.cmd("TestNearest")
-			end
-		end, opts)
-		vim.keymap.set("n", "<space>T", function()
-			if is_java_file() then
-				require("jdtls").test_class()
-			else
-				vim.cmd("TestClass")
-			end
-		end, opts)
-		vim.keymap.set("n", "<space>tl", ":TestLast<CR>", opts)
 	end,
 })
-
--- Maps some keys in case the buffer is a java file
-function MapJavaKeys(opts)
-	if is_java_file() then
-		vim.keymap.set("n", "<space>i", function()
-			require("jdtls").organize_imports()
-		end, opts)
-		vim.keymap.set("n", "<space>xv", function()
-			require("jdtls").extract_variable()
-		end, opts)
-		vim.keymap.set("v", "<space>xv", function()
-			require("jdtls").extract_variable()
-		end, opts)
-		vim.keymap.set("n", "<space>xc", function()
-			require("jdtls").extract_constant()
-		end, opts)
-		vim.keymap.set("v", "<space>xc", function()
-			require("jdtls").extract_constant()
-		end, opts)
-		vim.keymap.set("v", "<space>xm", function()
-			require("jdtls").extract_method()
-		end, opts)
-	end
-end
-
--- Netrw mappings
-require("mappings.netrw")
