@@ -1,5 +1,6 @@
 local lspconfig = require("lspconfig")
-local cmp_capabilities = require("utils").getCapabilities()
+local utils = require("utils")
+
 lspconfig.lua_ls.setup({
 	settings = {
 		Lua = {
@@ -11,5 +12,6 @@ lspconfig.lua_ls.setup({
 			},
 		},
 	},
-	capabilities = cmp_capabilities,
+	on_attach = utils.on_attach,
+	capabilities = utils.capabilities,
 })

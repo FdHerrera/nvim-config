@@ -110,7 +110,7 @@ local config = {
 			},
 		},
 		extendedClientCapabilities = {
-			require("utils").getCapabilities(),
+			require("utils").capabilities,
 			advancedExtractRefactoringSupport = true,
 			advancedOrganizeImportsSupport = true,
 			classFileContentsSupport = true,
@@ -140,7 +140,7 @@ local config = {
 	},
 }
 
-config["on_attach"] = function(client, bufnr)
+config["on_attach"] = function(_, bufnr)
 	require("jdtls").setup_dap({ hotcodereplace = "auto" })
 	require("lsp_signature").on_attach({
 		bind = true, -- This is mandatory, otherwise border config won't get registered.

@@ -1,6 +1,7 @@
-local cmp_capabilities = require("utils").getCapabilities()
+local utils = require("utils")
 require("lspconfig").tsserver.setup({
-	capabilities = cmp_capabilities,
+	on_attach = utils.on_attach,
+	capabilities = utils.capabilities,
 })
 
 require("dap-vscode-js").setup({

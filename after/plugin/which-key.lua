@@ -37,27 +37,6 @@ local function register_java_maps()
 					"Extract constant",
 				},
 			},
-			t = {
-				function()
-					if is_java_file() then
-						require("jdtls").test_nearest_method()
-					else
-						vim.cmd("TestNearest")
-					end
-				end,
-				"Test nearest",
-			},
-			T = {
-				function()
-					if is_java_file() then
-						require("jdtls").test_class()
-					else
-						vim.cmd("TestClass")
-					end
-				end,
-				"Test class",
-			},
-			["tl"] = { ":TestLast<CR>", "Test last" },
 		}, { prefix = "<space>" })
 
 		wk.register({
@@ -116,19 +95,51 @@ wk.register({
 	q = { ":q<CR>", "Quit" },
 	[";"] = { "A;<ESC>", "Append ';' to end of line" },
 	F = { ":Format<CR>", "Format file" },
-	a = { mark.add_file, "Harpoon add file" },
 	h = {
-		m = { harpoon.toggle_quick_menu, "Harpoon menu" },
+		name = "Harpoon",
+		a = { mark.add_file, "Add file" },
+		m = { harpoon.toggle_quick_menu, "Menu" },
 	},
 	k = { vim.diagnostic.open_float, "Open diagnostic" },
 	["[d"] = { vim.diagnostic.goto_prev, "Prev diagnostic" },
 	["'d"] = { vim.diagnostic.goto_next, "Next diagnostic" },
+	t = {
+		function()
+			if is_java_file() then
+				require("jdtls").test_nearest_method()
+			else
+				vim.cmd("TestNearest")
+			end
+		end,
+		"Test nearest",
+	},
+	T = {
+		function()
+			if is_java_file() then
+				require("jdtls").test_class()
+			else
+				vim.cmd("TestClass")
+			end
+		end,
+		"Test class",
+	},
+	["tl"] = { ":TestLast<CR>", "Test last" },
+	-- Ignore switchings in harpoon
+	["1"] = "which_key_ignore",
+	["2"] = "which_key_ignore",
+	["3"] = "which_key_ignore",
+	["4"] = "which_key_ignore",
+	["5"] = "which_key_ignore",
+	["6"] = "which_key_ignore",
+	["7"] = "which_key_ignore",
+	["8"] = "which_key_ignore",
+	["9"] = "which_key_ignore",
+	-- Ignore switchings in harpoon
 }, { prefix = "<space>" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function()
-
 		-- Mappings with no prefix --
 		wk.register({
 			g = {
@@ -209,8 +220,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		}, { prefix = "<leader>" })
 
 		-- NORMAL MAPPINGS --
-
-
 
 		-- VISUAL MAPPINGS --
 
