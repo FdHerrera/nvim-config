@@ -255,3 +255,5 @@ for i = 1, 9 do
 end
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
+
+return {}

@@ -1,5 +1,78 @@
 # nvim-config
 
+Configuration setted up from kickstart. ['see'](https://github.com/nvim-lua/kickstart.nvim)
+
+### Introduction
+
+A starting point for Neovim that is:
+
+* Small
+* Single-file (with examples of moving to multi-file)
+* Documented
+* Modular
+
+This repo is meant to be used by **YOU** to begin your Neovim journey; remove the things you don't use and add what you miss.
+
+Kickstart.nvim targets *only* the latest ['stable'](https://github.com/neovim/neovim/releases/tag/stable) and latest ['nightly'](https://github.com/neovim/neovim/releases/tag/nightly) of Neovim. If you are experiencing issues, please make sure you have the latest versions.
+
+Distribution Alternatives:
+- [LazyVim](https://www.lazyvim.org/): A delightful distribution maintained by @folke (the author of lazy.nvim, the package manager used here)
+
+### Installation
+
+> **NOTE** 
+> [Backup](#FAQ) your previous configuration (if any exists)
+
+Requirements:
+* Make sure to review the readmes of the plugins if you are experiencing errors. In particular:
+  * [ripgrep](https://github.com/BurntSushi/ripgrep#installation) is required for multiple [telescope](https://github.com/nvim-telescope/telescope.nvim#suggested-dependencies) pickers.
+* See [Windows Installation](#Windows-Installation) if you have trouble with `telescope-fzf-native`
+
+Neovim's configurations are located under the following paths, depending on your OS:
+
+| OS | PATH |
+| :- | :--- |
+| Linux | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
+| MacOS | `$XDG_CONFIG_HOME/nvim`, `~/.config/nvim` |
+| Windows (cmd)| `%userprofile%\AppData\Local\nvim\` |
+| Windows (powershell)| `$env:USERPROFILE\AppData\Local\nvim\` |
+
+Clone kickstart.nvim:
+
+```sh
+# on Linux and Mac
+git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+```
+
+
+```
+# on Windows (cmd)
+git clone https://github.com/nvim-lua/kickstart.nvim.git %userprofile%\AppData\Local\nvim\ 
+```
+
+```
+# on Windows (powershell)
+git clone https://github.com/nvim-lua/kickstart.nvim.git $env:USERPROFILE\AppData\Local\nvim\ 
+```
+
+
+### Post Installation
+
+Start Neovim
+
+```sh
+nvim
+```
+
+The `Lazy` plugin manager will start automatically on the first run and install the configured plugins - as can be seen in the introduction video. After the installation is complete you can press `q` to close the `Lazy` UI and **you are ready to go**! Next time you run nvim `Lazy` will no longer show up.
+
+If you would prefer to hide this step and run the plugin sync from the command line, you can use:
+
+```sh
+nvim --headless "+Lazy! sync" +qa
+```
+
+
 This repository contains my personal configuration for Neovim, tailored for software development. It includes various plugins and settings to enhance my coding experience.
 
 ## Prerequisites
@@ -30,39 +103,15 @@ Please follow the steps below to set up the Neovim configuration:
 
 1. Ensure that you have three Java JDK installations available: 'JAVA_17', 'JAVA_18', and 'JAVA_11'. These should be defined as environment variables pointing to the respective source folders of each JDK.
 
-2. For Java testing and debugging, clone and install the following repositories:
-   - [microsoft/java-debug](https://github.com/microsoft/java-debug)
-   - [microsoft/vscode-java-test](https://github.com/microsoft/vscode-java-test)
+2. Clone this repository to the following location on Windows: "$user/AppData/Local/nvim".
 
-   Define the following environment variables accordingly:
-   - 'JAVA_DEBUGGER': Path to the java-debug repository
-   - 'VSCODE_JAVA_TEST': Path to the vscode-java-test repository
-
-3. Clone this repository to the following location on Windows: "$user/AppData/Local/nvim".
-
-4. Install and set up vim-plug for plugin management. You can find more information about vim-plug [here](https://github.com/junegunn/vim-plug).
-
-5. Install the required global npm packages:
+3. Install the required global npm packages:
 - `npm install -g neovim`
 - `npm install -g tree-sitter`
 
 
-6. Install the Vim plugins by running the following commands within Neovim:
-- `:PlugInstall`
-
-
-7. Run the following command to update the tree-sitter parser:
-- `:TSUpdate`
-
-
 Now your Neovim configuration should be set up and ready to use. Feel free to explore the various plugins and settings included in this configuration to enhance your coding workflow.
-
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
 If you have any questions or need further assistance, you can reach me at [federico.herrera_dev@outlook.com](mailto:federico.herrera_dev@outlook.com).
-

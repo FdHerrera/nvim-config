@@ -23,6 +23,6 @@ vim.api.nvim_create_autocmd("filetype", {
 		--------------
 		-- Mappings --
 		--------------
-
 	end,
 })
+return {}
