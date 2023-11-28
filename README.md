@@ -79,7 +79,7 @@ This repository contains my personal configuration for Neovim, tailored for soft
 
 Before setting up this Neovim configuration, ensure that you have the following prerequisites installed on your system:
 
-- Neovim >= 0.7
+- Neovim >= 0.9.0
 - npm >= 9.5.1
 - node >= v19.8.1
 - yarn
@@ -92,7 +92,7 @@ Before setting up this Neovim configuration, ensure that you have the following 
 - curl
 - tar
 - pynvim
-- C runner (on Windows, preferably 'cc')
+- C runner (on Windows, preferably 'gcc')
 - Maven
 - clang-format
 - sed
@@ -108,6 +108,7 @@ Please follow the steps below to set up the Neovim configuration:
 3. Install the required global npm packages:
 - `npm install -g neovim`
 - `npm install -g tree-sitter`
+- `winget install StrawberryPerl.StrawberryPerl`
 
 
 Now your Neovim configuration should be set up and ready to use. Feel free to explore the various plugins and settings included in this configuration to enhance your coding workflow.
