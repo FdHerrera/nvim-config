@@ -3,6 +3,7 @@ local wk = require("which-key")
 local mark = require("harpoon.mark")
 local harpoon = require("harpoon.ui")
 local telescope = require("telescope.builtin")
+local dap = require('dap')
 
 local function is_java_file()
 	local buffer_file_name = vim.api.nvim_buf_get_name(0)
@@ -65,7 +66,7 @@ local function register_java_maps()
 						require("jdtls").extract_method()
 					end,
 					"Extract method",
-				},
+				}
 			},
 		}, { prefix = "<space>", mode = "v" })
 	end
@@ -108,22 +109,17 @@ wk.register({
 			if is_java_file() then
 				require("jdtls").test_nearest_method()
 			else
-				vim.cmd("TestNearest")
+				dap.continue()
 			end
 		end,
 		"Test nearest",
 	},
 	T = {
 		function()
-			if is_java_file() then
-				require("jdtls").test_class()
-			else
-				vim.cmd("TestClass")
-			end
+			require("jdtls").test_class()
 		end,
 		"Test class",
 	},
-	["tl"] = { ":TestLast<CR>", "Test last" },
 	-- Ignore switchings in harpoon
 	["1"] = "which_key_ignore",
 	["2"] = "which_key_ignore",
@@ -161,45 +157,31 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			d = {
 				name = "Debugging",
 				b = {
-					function()
-						require("dap").toggle_breakpoint()
-					end,
+					dap.toggle_breakpoint,
 					"Toggle breakpoint",
 				},
 				c = {
-					function()
-						require("dap").continue()
-					end,
+					dap.continue,
 					"Continue debugging",
 				},
 				["si"] = {
-					function()
-						require("dap").step_into()
-					end,
+					dap.step_into,
 					"Step into",
 				},
 				["sn"] = {
-					function()
-						require("dap").step_over()
-					end,
+					dap.step_over,
 					"Step over",
 				},
 				r = {
-					function()
-						require("dap").repl.open()
-					end,
+					dap.repl.open,
 					"Open repl",
 				},
 				h = {
-					function()
-						require("dapui").eval()
-					end,
+					require("dapui").eval,
 					"Evaluate expression",
 				},
 				p = {
-					function()
-						require("dap.ui.widgets").preview()
-					end,
+					require("dap.ui.widgets").preview,
 					"Preview expression",
 				},
 				f = {
