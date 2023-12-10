@@ -470,13 +470,15 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
+  docker_compose_language_service = {},
+  dockerls = {},
+  emmet_language_server = {},
+  gopls = {},
+  gradle_ls = {},
+  graphql = {},
+  jdtls = {},
+  jsonls = {},
+  kotlin_language_server = {},
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -485,10 +487,18 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+  pyright = {},
+  tailwindcss = {},
+  tsserver = {},
+  vimls = {},
+  volar = {},
+  yamlls = {},
 }
 
 -- Setup neovim lua configuration
-require('neodev').setup()
+require('neodev').setup({
+  library = { plugins = { "neotest" }, types = true }
+})
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()

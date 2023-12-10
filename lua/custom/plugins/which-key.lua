@@ -104,22 +104,6 @@ wk.register({
 	k = { vim.diagnostic.open_float, "Open diagnostic" },
 	["[d"] = { vim.diagnostic.goto_prev, "Prev diagnostic" },
 	["'d"] = { vim.diagnostic.goto_next, "Next diagnostic" },
-	t = {
-		function()
-			if is_java_file() then
-				require("jdtls").test_nearest_method()
-			else
-				dap.continue()
-			end
-		end,
-		"Test nearest",
-	},
-	T = {
-		function()
-			require("jdtls").test_class()
-		end,
-		"Test class",
-	},
 	-- Ignore switchings in harpoon
 	["1"] = "which_key_ignore",
 	["2"] = "which_key_ignore",
@@ -198,6 +182,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 					end,
 					"Scopes",
 				},
+				t = {
+					function()
+						require("neotest").run.run({ strategy = "dap" })
+					end,
+					"Debug nearest test"
+				}
 			},
 		}, { prefix = "<leader>" })
 
