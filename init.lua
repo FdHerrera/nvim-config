@@ -171,7 +171,13 @@ require('lazy').setup({
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist ou",
   },
   { "mxsdev/nvim-dap-vscode-js" },
-  { "ThePrimeagen/harpoon",     opts = {} },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = {
+      "nvim-lua/plenary.nvim"
+    }
+  },
   {
     "folke/which-key.nvim",
     config = function()

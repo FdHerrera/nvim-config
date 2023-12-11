@@ -1,7 +1,6 @@
 local wk = require("which-key")
 
-local mark = require("harpoon.mark")
-local harpoon = require("harpoon.ui")
+local harpoon = require("harpoon")
 local telescope = require("telescope.builtin")
 local dap = require('dap')
 
@@ -98,8 +97,16 @@ wk.register({
 	F = { ":Format<CR>", "Format file" },
 	h = {
 		name = "Harpoon",
-		a = { mark.add_file, "Add file" },
-		m = { harpoon.toggle_quick_menu, "Menu" },
+		a = {
+			function()
+				harpoon:list():append()
+			end,
+			"Add file" },
+		m = {
+			function()
+				harpoon.ui:toggle_quick_menu(harpoon:list())
+			end,
+			"Menu" },
 	},
 	k = { vim.diagnostic.open_float, "Open diagnostic" },
 	["[d"] = { vim.diagnostic.goto_prev, "Prev diagnostic" },
@@ -222,7 +229,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -- Silent keymaps
 for i = 1, 9 do
 	vim.keymap.set("n", "<space>" .. i, function()
-		harpoon.nav_file(i)
+		harpoon:list():select(i)
 	end)
 end
 vim.keymap.set("n", "n", "nzzzv")
