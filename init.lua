@@ -113,12 +113,11 @@ require('lazy').setup({
   },
 
   {
-    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
@@ -159,7 +158,6 @@ require('lazy').setup({
   },
   { "alvan/vim-closetag" },
   { "prettier/vim-prettier",      build = "npm install" },
-  { "nvim-tree/nvim-web-devicons" },
   { "mhartington/formatter.nvim" },
   { "airblade/vim-gitgutter" },
   { "mfussenegger/nvim-jdtls" },
