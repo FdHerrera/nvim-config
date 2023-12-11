@@ -119,7 +119,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
@@ -127,7 +127,6 @@ require('lazy').setup({
   },
 
   {
-    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help ibl`
@@ -161,7 +160,6 @@ require('lazy').setup({
   { "alvan/vim-closetag" },
   { "prettier/vim-prettier",      build = "npm install" },
   { "nvim-tree/nvim-web-devicons" },
-  -- { "HiPhish/nvim-ts-rainbow2" },
   { "mhartington/formatter.nvim" },
   { "airblade/vim-gitgutter" },
   { "mfussenegger/nvim-jdtls" },
@@ -192,8 +190,17 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
+      'HiPhish/nvim-ts-rainbow2'
     },
     build = ':TSUpdate',
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        rainbow = {
+          enable = true,
+          strategy = require("ts-rainbow").strategy.global
+        }
+      })
+    end
   },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart

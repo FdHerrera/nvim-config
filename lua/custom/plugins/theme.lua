@@ -27,8 +27,12 @@ return {
 			dap = {
 				enabled = true,
 			},
+			ts_rainbow2 = true,
+			neotest = true,
+			which_key = true,
 			indent_blankline = {
 				enabled = true,
+				scope_color = "lavender",
 				colored_indent_levels = true,
 			},
 		},
