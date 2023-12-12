@@ -157,7 +157,7 @@ require('lazy').setup({
     },
   },
   { "alvan/vim-closetag" },
-  { "prettier/vim-prettier",      build = "npm install" },
+  { "prettier/vim-prettier",     build = "npm install" },
   { "mhartington/formatter.nvim" },
   { "airblade/vim-gitgutter" },
   { "mfussenegger/nvim-jdtls" },
@@ -347,8 +347,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim',
-      'bash' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'elixir' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -484,6 +483,7 @@ local servers = {
   docker_compose_language_service = {},
   dockerls = {},
   emmet_language_server = {},
+  elixirls = {},
   gopls = {},
   gradle_ls = {},
   graphql = {},
@@ -494,8 +494,7 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+      diagnostics = { disable = { 'missing-fields' } },
     },
   },
   pyright = {},
