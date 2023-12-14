@@ -4,7 +4,7 @@ return {
 	name = 'catppuccin',
 	priority = 1000,
 	opts = {
-		transparent_background = false,
+		transparent_background = true,
 		styles = {
 			comments = {},
 			conditionals = {},
@@ -30,11 +30,6 @@ return {
 			ts_rainbow2 = true,
 			neotest = true,
 			which_key = true,
-			indent_blankline = {
-				enabled = true,
-				scope_color = "lavender",
-				colored_indent_levels = true,
-			},
 		},
 	}
 }
