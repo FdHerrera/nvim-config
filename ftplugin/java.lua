@@ -75,6 +75,7 @@ local config = {
     bundles = bundles,
     extendedClientCapabilities = capabilities
   },
+  on_attach = require("custom.utils")
 }
 
 -- This starts a new client & server,
