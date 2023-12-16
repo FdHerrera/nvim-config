@@ -27,12 +27,22 @@ return {
       t = {
         name = "Tests",
         t = {
-          neotest.run.run,
+          function()
+            if vim.bo.filetype == 'java' then
+              require('jdtls').test_nearest_method()
+            else
+              neotest.run.run()
+            end
+          end,
           "Run nearest"
         },
         T = {
           function()
-            require("neotest").run.run(vim.fn.expand("%"))
+            if vim.bo.filetype == 'java' then
+              require('jdtls').test_nearest_method()
+            else
+              require("neotest").run.run(vim.fn.expand("%"))
+            end
           end,
           "Run file"
         },

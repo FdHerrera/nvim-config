@@ -27,7 +27,6 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  "mhartington/formatter.nvim",
   "udalov/kotlin-vim",
   "mxsdev/nvim-dap-vscode-js",
   "alvan/vim-closetag",
@@ -144,11 +143,6 @@ require('lazy').setup({
         end,
       },
     },
-  },
-
-  {
-    "microsoft/vscode-js-debug",
-    build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist ou",
   },
 
   {
@@ -294,7 +288,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'elixir' },
+    ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'elixir', 'java' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
@@ -421,7 +415,6 @@ local servers = {
   gopls = {},
   gradle_ls = {},
   graphql = {},
-  jdtls = {},
   jsonls = {},
   kotlin_language_server = {},
   lua_ls = {
@@ -457,6 +450,10 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
+    -- jdtls is so special it needs to be configured in ftplugin/java.lua
+    if 'jdtls' == server_name then
+      return
+    end
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
@@ -517,7 +514,7 @@ cmp.setup {
   },
 }
 
-vim.cmd.colorscheme('catppuccin-macchiato')
+vim.cmd.colorscheme('catppuccin-frappe')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
