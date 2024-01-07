@@ -9,7 +9,7 @@ return {
 	config = function()
 		-- Silent keymaps
 		for i = 1, 9 do
-			vim.keymap.set("n", "<space>" .. i, function()
+			vim.keymap.set("n", "<leader>" .. i, function()
 				harpoon:list():select(i)
 			end)
 		end
@@ -22,6 +22,8 @@ return {
 			f = {
 				name = "Telescope",
 				f = { telescope.find_files, "Search Files" },
+				g = { telescope.git_files, "Find in Git" },
+				d = { telescope.diagnostics, "Diagnostics" },
 				s = { telescope.live_grep, "Search in files content" },
 				b = { telescope.buffers, "Search buffers" },
 				h = { telescope.help_tags, "Search in tags" },
@@ -38,7 +40,7 @@ return {
 			},
 			q = { ":q<CR>", "Quit" },
 			[";"] = { "A;<ESC>", "Append ';' to end of line" },
-			F = { ":Format<CR>", "Format file" },
+			F = { vim.lsp.buf.format, "Format file" },
 			h = {
 				name = "Harpoon",
 				a = {
@@ -66,7 +68,7 @@ return {
 			["8"] = "which_key_ignore",
 			["9"] = "which_key_ignore",
 			-- Ignore switchings in harpoon
-		}, { prefix = "<space>" })
+		}, { prefix = "<leader>" })
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('key-bindings', { clear = true }),
 			callback = function(args)
@@ -95,7 +97,7 @@ return {
 								"Extract constant",
 							},
 						},
-					}, { prefix = "<space>" })
+					}, { prefix = "<leader>" })
 
 					wk.register({
 						i = {
@@ -125,16 +127,16 @@ return {
 								"Extract method",
 							}
 						},
-					}, { prefix = "<space>", mode = "v" })
+					}, { prefix = "<leader>", mode = "v" })
 				end
 				wk.register({
 					g = {
 						name = "Go to",
 						D = { vim.lsp.buf.declaration, "Declaration" },
-						d = { vim.lsp.buf.definition, "Definition" },
-						t = { vim.lsp.buf.type_definition, "Type definition" },
-						i = { vim.lsp.buf.implementation, "Implementation" },
-						r = { vim.lsp.buf.references, "References" },
+						d = { telescope.lsp_definitions, "Definition" },
+						t = { telescope.lsp_type_definitions, "Type definition" },
+						i = { telescope.lsp_implementations, "Implementation" },
+						r = { telescope.lsp_references, "References" },
 					},
 					H = { vim.lsp.buf.hover, "Hover" },
 					r = { vim.lsp.buf.rename, "Rename" },
