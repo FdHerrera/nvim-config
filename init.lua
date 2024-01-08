@@ -35,7 +35,19 @@ require('lazy').setup({
     dependencies = {
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        opts = {
+          progress = {
+            suppress_on_insert = true,
+          },
+          notification = {
+            window = {
+              winblend = 0,
+            }
+          },
+        }
+      },
       'folke/neodev.nvim',
     },
   },
