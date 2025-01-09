@@ -3,7 +3,9 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-neotest/neotest-go",
-    "antoinemadec/FixCursorHold.nvim"
+    "antoinemadec/FixCursorHold.nvim",
+    "nvim-neotest/nvim-nio",
+    "nvim-treesitter/nvim-treesitter",
   },
   config = function()
     local neotest_ns = vim.api.nvim_create_namespace("neotest")

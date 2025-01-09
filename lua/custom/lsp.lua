@@ -21,7 +21,6 @@ local servers = {
   },
   pyright = {},
   tailwindcss = {},
-  tsserver = {},
   vimls = {},
   volar = {},
   yamlls = {},
@@ -50,7 +49,15 @@ mason_lspconfig.setup_handlers {
     if 'jdtls' == server_name then
       return
     end
-    require('lspconfig')[server_name].setup {
+
+    local lsp_config = require('lspconfig')
+    local lsp_configs = require('lspconfig.configs')
+
+    if not lsp_configs[server_name] then
+      lsp_configs[server_name] = require('custom.lsp_servers_config')[server_name]
+    end
+
+    lsp_config[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
