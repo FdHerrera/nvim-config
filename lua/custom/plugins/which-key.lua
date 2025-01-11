@@ -13,215 +13,134 @@ return {
 				harpoon:list():select(i)
 			end)
 		end
+		-- Hides above mappings
+		wk.add({
+			{ "<leader>1", hidden = true },
+			{ "<leader>2", hidden = true },
+			{ "<leader>3", hidden = true },
+			{ "<leader>4", hidden = true },
+			{ "<leader>5", hidden = true },
+			{ "<leader>6", hidden = true },
+			{ "<leader>7", hidden = true },
+			{ "<leader>8", hidden = true },
+			{ "<leader>9", hidden = true },
+		})
 		vim.keymap.set("n", "n", "nzzzv")
 		vim.keymap.set("n", "N", "Nzzzv")
-		wk.register({
-			s = { "<cmd>w<CR>", "Saves file" },
-			["wq"] = { ":wq<Enter>", "Saves and quits" },
-			e = { vim.cmd.Ex, "Explorer" },
-			f = {
-				name = "Telescope",
-				f = { telescope.find_files, "Search Files" },
-				g = { telescope.git_files, "Find in Git" },
-				d = { telescope.diagnostics, "Diagnostics" },
-				s = { telescope.live_grep, "Search in files content" },
-				b = { telescope.buffers, "Search buffers" },
-				h = { telescope.help_tags, "Search in tags" },
+		wk.add({
+			{ "<leader>s",  "<cmd>w<CR>", desc = "Saves file" },
+			{ "<leader>wq", ":wq<Enter>", desc = "Saves and quits" },
+			{ "<leader>e",  vim.cmd.Ex,   desc = "Explorer" },
+			{
+				{ "<leader>f",  group = "Telescope" },
+				{ "<leader>ff", telescope.find_files,  desc = "Search Files" },
+				{ "<leader>fg", telescope.git_files,   desc = "Find in Git" },
+				{ "<leader>fd", telescope.diagnostics, desc = "Diagnostics" },
+				{ "<leader>fs", telescope.live_grep,   desc = "Search in files content" },
+				{ "<leader>fb", telescope.buffers,     desc = "Search buffers" },
+				{ "<leader>fh", telescope.help_tags,   desc = "Search in tags" },
 			},
-			g = {
-				name = "Git",
-				s = { vim.cmd.Git, "Git status" },
-				p = { ":Git push<CR>", "Push" },
-				u = { ":Git pull<CR>", "Pull" },
-				a = { ":Git add %<CR>", "Add all" },
+			{
+				{ "<leader>g",  group = "Git" },
+				{ "<leader>gs", vim.cmd.Git,      desc = "Git status" },
+				{ "<leader>gp", ":Git push<CR>",  desc = "Push" },
+				{ "<leader>gu", ":Git pull<CR>",  desc = "Pull" },
+				{ "<leader>ga", ":Git add %<CR>", desc = "Add all" },
 			},
-			v = {
-				s = { ":vert sb<CR>", "Vertical split" },
+			{ "<leader>vs", ":vert sb<CR>",     desc = "Vertical split" },
+			{ "<leader>q",  ":q<CR>",           desc = "Quit" },
+			{ "<leader>;",  "A;<ESC>",          desc = "Append ';' to end of line" },
+			{ "<leader>F",  vim.lsp.buf.format, desc = "Format file" },
+			{
+				{ "<leader>h",  group = "Harpoon" },
+				{ "<leader>ha", function() harpoon:list():append() end,                      desc = "Add File" },
+				{ "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Menu" },
 			},
-			q = { ":q<CR>", "Quit" },
-			[";"] = { "A;<ESC>", "Append ';' to end of line" },
-			F = { vim.lsp.buf.format, "Format file" },
-			h = {
-				name = "Harpoon",
-				a = {
-					function()
-						harpoon:list():append()
-					end,
-					"Add file" },
-				m = {
-					function()
-						harpoon.ui:toggle_quick_menu(harpoon:list())
-					end,
-					"Menu" },
-			},
-			k = { vim.diagnostic.open_float, "Open diagnostic" },
-			["[d"] = { vim.diagnostic.goto_prev, "Prev diagnostic" },
-			["'d"] = { vim.diagnostic.goto_next, "Next diagnostic" },
-			-- Ignore switchings in harpoon
-			["1"] = "which_key_ignore",
-			["2"] = "which_key_ignore",
-			["3"] = "which_key_ignore",
-			["4"] = "which_key_ignore",
-			["5"] = "which_key_ignore",
-			["6"] = "which_key_ignore",
-			["7"] = "which_key_ignore",
-			["8"] = "which_key_ignore",
-			["9"] = "which_key_ignore",
-			-- Ignore switchings in harpoon
-		}, { prefix = "<leader>" })
+			{ "<leader>k",  vim.diagnostic.open_float, desc = "Open diagnostic" },
+			{ "<leader>[d", vim.diagnostic.goto_prev,  desc = "Prev diagnostic" },
+			{ "<leader>'d", vim.diagnostic.goto_next,  desc = "Next diagnostic" },
+		})
 		vim.api.nvim_create_autocmd('LspAttach', {
 			group = vim.api.nvim_create_augroup('key-bindings', { clear = true }),
 			callback = function(args)
 				local client_id = args.data.client_id
 				local client = vim.lsp.get_client_by_id(client_id)
 				if client.name == "jdtls" then
-					wk.register({
-						i = {
-							function()
-								require("jdtls").organize_imports()
-							end,
-							"Organize imports",
-						},
-						x = {
-							name = "Extract",
-							v = {
-								function()
-									require("jdtls").extract_variable()
-								end,
-								"Extract variable",
-							},
-							c = {
-								function()
-									require("jdtls").extract_constant()
-								end,
-								"Extract constant",
+					wk.add({
+						{
+							mode = { "n" },
+							{ "<leader>i", function() require("jdtls").organize_imports() end, desc = "Organize imports" },
+							{
+								{ "<leader>x",  group = "Extract" },
+								{ "<leader>xv", function() require("jdtls").extract_variable() end, desc = "Extract variable" },
+								{ "<leader>xc", function() require("jdtls").extract_constant() end, desc = "Extract constant" },
 							},
 						},
-					}, { prefix = "<leader>" })
-
-					wk.register({
-						i = {
-							function()
-								require("jdtls").organize_imports()
-							end,
-							"Organize imports",
-						},
-						x = {
-							name = "Extract",
-							v = {
-								function()
-									require("jdtls").extract_variable()
-								end,
-								"Extract variable",
+						{
+							mode = { "v" },
+							{ "<leader>i", function() require("jdtls").organize_imports() end, desc = "Organize imports" },
+							{
+								{ "<leader>x",  group = "Extract" },
+								{ "<leader>xv", function() require("jdtls").extract_variable() end, desc = "Extract variable" },
+								{ "<leader>xc", function() require("jdtls").extract_constant() end, desc = "Extract constant" },
+								{ "<leader>xm", function() require("jdtls").extract_method() end,   desc = "Extract method" },
 							},
-							c = {
-								function()
-									require("jdtls").extract_constant()
-								end,
-								"Extract constant",
-							},
-							m = {
-								function()
-									require("jdtls").extract_method()
-								end,
-								"Extract method",
-							}
-						},
-					}, { prefix = "<leader>", mode = "v" })
+						}
+					})
 				end
-				wk.register({
-					g = {
-						name = "Go to",
-						D = { vim.lsp.buf.declaration, "Declaration" },
-						d = { telescope.lsp_definitions, "Definition" },
-						t = { telescope.lsp_type_definitions, "Type definition" },
-						i = { telescope.lsp_implementations, "Implementation" },
-						r = { telescope.lsp_references, "References" },
+				wk.add({
+					{
+						{ "g",  group = "Extract" },
+						{ "gD", vim.lsp.buf.declaration,        desc = "Declaration" },
+						{ "gd", telescope.lsp_definitions,      desc = "Definition" },
+						{ "gt", telescope.lsp_type_definitions, desc = "Type definition" },
+						{ "gi", telescope.lsp_implementations,  desc = "Implementation" },
+						{ "gr", telescope.lsp_references,       desc = "References" },
 					},
-					H = { vim.lsp.buf.hover, "Hover" },
-					r = { vim.lsp.buf.rename, "Rename" },
-					["ca"] = { vim.lsp.buf.code_action, "Code action" },
+					{
+						{ "c",  group = "[C]ode" },
+						{ "cH", vim.lsp.buf.hover,       desc = "Hover" },
+						{ "cr", vim.lsp.buf.rename,      desc = "Rename" },
+						{ "ca", vim.lsp.buf.code_action, desc = "Code action" },
+					}
 				})
 
-				-- NORMAL MAPPINGS --
-
-				wk.register({
-					d = {
-						name = "Debugging",
-						b = {
-							dap.toggle_breakpoint,
-							"Toggle breakpoint",
-						},
-						c = {
-							dap.continue,
-							"Continue debugging",
-						},
-						["si"] = {
-							dap.step_into,
-							"Step into",
-						},
-						["sn"] = {
-							dap.step_over,
-							"Step over",
-						},
-						r = {
-							dap.repl.open,
-							"Open repl",
-						},
-						h = {
-							require("dapui").eval,
-							"Evaluate expression",
-						},
-						p = {
-							require("dap.ui.widgets").preview,
-							"Preview expression",
-						},
-						f = {
-							function()
-								local widgets = require("dap.ui.widgets")
-								widgets.centered_float(widgets.frames)
-							end,
-							"Frames",
-						},
-						s = {
-							function()
-								local widgets = require("dap.ui.widgets")
-								widgets.centered_float(widgets.scopes)
-							end,
-							"Scopes",
-						},
-						t = {
-							function()
-								require("neotest").run.run({ strategy = "dap" })
-							end,
-							"Debug nearest test"
-						}
-					},
-				}, { prefix = "<leader>" })
-
-				-- NORMAL MAPPINGS --
-
-				-- VISUAL MAPPINGS --
-
-				wk.register({
-					d = {
-						name = "Debugging",
-						h = {
-							function()
-								require("dapui").eval()
-							end,
-							"Evaluate expression",
-						},
-						p = {
-							function()
-								require("dap.ui.widgets").preview()
-							end,
-							"Preview expression",
+				wk.add({
+					{
+						mode = "n",
+						{
+							{ "<leader>D",   group = "Debugging" },
+							{ "<leader>Db",  dap.toggle_breakpoint,             desc = "Toggle breakpoint" },
+							{ "<leader>Dc",  dap.continue,                      desc = "Continue debugging" },
+							{ "<leader>Dsi", dap.step_into,                     desc = "Step into" },
+							{ "<leader>Dsn", dap.step_over,                     desc = "Step over" },
+							{ "<leader>Dr",  dap.repl.open,                     desc = "Open repl" },
+							{ "<leader>Dh",  require("dapui").eval,             desc = "Evaluate expression" },
+							{ "<leader>Dp",  require("dap.ui.widgets").preview, desc = "Preview expression" },
+							{
+								"<leader>Ds",
+								function()
+									local widgets = require("dap.ui.widgets")
+									widgets.centered_float(widgets.scopes)
+								end,
+								desc = "Scopes"
+							},
+							{
+								"<leader>Df",
+								function()
+									local widgets = require("dap.ui.widgets")
+									widgets.centered_float(widgets.frames)
+								end,
+								desc = "Frames"
+							},
 						},
 					},
-				}, { prefix = "<leader>", mode = "v" })
-
-				-- VISUAL MAPPINGS --
+					{
+						mode = "v",
+						{ "<leader>Dh", require("dapui").eval,             desc = "Evaluate expression" },
+						{ "<leader>Dp", require("dap.ui.widgets").preview, desc = "Preview expression" },
+					}
+				})
 			end
 		})
 	end

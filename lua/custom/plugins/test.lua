@@ -24,35 +24,31 @@ return {
         require("neotest-go"),
       },
     })
-    local wk = require("which-key")
-    wk.register({
-      t = {
-        name = "Tests",
-        t = {
-          function()
-            if vim.bo.filetype == 'java' then
-              require('jdtls').test_nearest_method()
-            else
-              neotest.run.run()
-            end
-          end,
-          "Run nearest"
-        },
-        T = {
-          function()
-            if vim.bo.filetype == 'java' then
-              require('jdtls').test_nearest_method()
-            else
-              require("neotest").run.run(vim.fn.expand("%"))
-            end
-          end,
-          "Run file"
-        },
-        s = {
-          neotest.run.stop,
-          "Stop test run"
-        }
-      }
-    }, { prefix = "<leader>" })
+    require("which-key").add({
+      { "<leader>t",  group = "Tests" },
+      { "<leader>ts", neotest.run.stop, desc = "Stop test run" },
+      {
+        "<leader>tt",
+        function()
+          if vim.bo.filetype == 'java' then
+            require('jdtls').test_nearest_method()
+          else
+            neotest.run.run()
+          end
+        end,
+        desc = "Run nearest"
+      },
+      {
+        "<leader>tT",
+        function()
+          if vim.bo.filetype == 'java' then
+            require('jdtls').test_nearest_method()
+          else
+            neotest.run.run()
+          end
+        end,
+        desc = "Run nearest"
+      },
+    })
   end,
 }
