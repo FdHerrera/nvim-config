@@ -141,6 +141,10 @@ require('lazy').setup({
 
   {
     "folke/which-key.nvim",
+    dependencies = {
+      { "nvim-tree/nvim-web-devicons" },
+      { "echasnovski/mini.nvim" },
+    },
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -152,14 +156,35 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'HiPhish/nvim-ts-rainbow2'
+      'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
     },
     build = ':TSUpdate',
     config = function()
       require("nvim-treesitter.configs").setup({
         rainbow = {
           enable = true,
-          strategy = require("ts-rainbow").strategy.global
+          strategy = {
+            [''] = require("rainbow-delimiters").strategy['global'],
+            vim = require("rainbow-delimiters").strategy['local'],
+          },
+          query = {
+            [''] = 'rainbow-delimiters',
+            lua = 'rainbow-blocks',
+          },
+          priority = {
+            [''] = 110,
+            lua = 210,
+          },
+          highlight = {
+            'RainbowDelimiterRed',
+            'RainbowDelimiterYellow',
+            'RainbowDelimiterBlue',
+            'RainbowDelimiterOrange',
+            'RainbowDelimiterGreen',
+            'RainbowDelimiterViolet',
+            'RainbowDelimiterCyan',
+          },
+
         }
       })
     end
