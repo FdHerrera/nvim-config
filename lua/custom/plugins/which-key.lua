@@ -33,13 +33,21 @@ return {
 			{ "<leader>e",  vim.cmd.Ex,   desc = "Explorer" },
 			{
 				{ "<leader>f",  group = "Telescope" },
-				{ "<leader>ff", telescope.find_files,                desc = "Search Files" },
-				{ "<leader>f/", telescope.current_buffer_fuzzy_find, desc = "Fuzzy search in current buffer" },
-				{ "<leader>fg", telescope.git_files,                 desc = "Find in Git" },
-				{ "<leader>fd", telescope.diagnostics,               desc = "Diagnostics" },
-				{ "<leader>fs", telescope.live_grep,                 desc = "Search in files content" },
-				{ "<leader>fb", telescope.buffers,                   desc = "Search buffers" },
-				{ "<leader>fh", telescope.help_tags,                 desc = "Search in tags" },
+				{ "<leader>ff", telescope.find_files,  desc = "Search Files" },
+				{ "<leader>fg", telescope.git_files,   desc = "Find in Git" },
+				{ "<leader>fd", telescope.diagnostics, desc = "Diagnostics" },
+				{ "<leader>fs", telescope.live_grep,   desc = "Search in files content" },
+				{ "<leader>fb", telescope.buffers,     desc = "Search buffers" },
+				{ "<leader>fh", telescope.help_tags,   desc = "Search in tags" },
+				{
+					"<leader>f/",
+					function()
+						telescope.current_buffer_fuzzy_find(
+							require("telescope.themes").get_dropdown {}
+						)
+					end,
+					desc = "Fuzzy search in current buffer"
+				},
 			},
 			{
 				{ "<leader>g",  group = "Git" },
