@@ -23,7 +23,11 @@ local servers = {
   tailwindcss = {},
   vimls = {},
   volar = {},
-  yamlls = {},
+  yamlls = {
+    yaml = {
+      schemas = { kubernetes = "*.yaml" }
+    }
+  },
 }
 
 
