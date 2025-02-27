@@ -15,11 +15,11 @@ A starting point for Neovim that is:
 
 Before setting up this Neovim configuration, ensure that you have the following prerequisites installed on your system:
 
-- Neovim >= 0.9.0
+- Neovim >= 0.10.0
+- Git >= 2.21.0
 - npm >= 9.5.1
 - node >= v19.8.1
 - yarn
-- Windows Terminal with PowerShell
 - Python3
 - pip
 - Java 17 (Other versions defined in PATH for development)
