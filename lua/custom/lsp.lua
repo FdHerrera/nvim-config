@@ -47,20 +47,31 @@ mason_lspconfig.setup {
 
 local on_attach = require("custom.utils")
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    -- jdtls is so special it needs to be configured in ftplugin/java.lua
-    if 'jdtls' == server_name then
-      return
-    end
-
-    local lsp_config = require('lspconfig')
-
-    lsp_config[server_name].setup {
+for name, config in pairs(servers) do
+  if name ~= "jdtls" then
+    vim.lsp.config(name, {
       capabilities = capabilities,
       on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+      settings = config,
+      filetypes = config.filetypes 
+    })
+  end
+end
+
+-- mason_lspconfig.setup_handlers {
+--   function(server_name)
+--     -- jdtls is so special it needs to be configured in ftplugin/java.lua
+--     if 'jdtls' == server_name then
+--       return
+--     end
+--
+--     local lsp_config = require('lspconfig')
+--
+--     lsp_config[server_name].setup {
+--       capabilities = capabilities,
+--       on_attach = on_attach,
+--       settings = servers[server_name],
+--       filetypes = (servers[server_name] or {}).filetypes,
+--     }
+--   end,
+-- }
