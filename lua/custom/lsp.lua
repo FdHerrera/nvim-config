@@ -7,10 +7,8 @@ local servers = {
   docker_compose_language_service = {},
   dockerls = {},
   emmet_language_server = {},
-  elixirls = {},
   gopls = {},
   gradle_ls = {},
-  graphql = {},
   jsonls = {},
   lua_ls = {
     Lua = {
@@ -20,9 +18,7 @@ local servers = {
     },
   },
   pyright = {},
-  tailwindcss = {},
   vimls = {},
-  volar = {},
   yamlls = {
     yaml = {
       schemas = { kubernetes = "*.yaml" }
