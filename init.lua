@@ -23,12 +23,12 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  "udalov/kotlin-vim",
-  "mxsdev/nvim-dap-vscode-js",
-  "alvan/vim-closetag",
+  'udalov/kotlin-vim',
+  'mxsdev/nvim-dap-vscode-js',
+  'alvan/vim-closetag',
   { 'numToStr/Comment.nvim', opts = {} },
 
-  { "prettier/vim-prettier", build = "npm install" },
+  { 'prettier/vim-prettier', build = 'npm install' },
 
   {
     'neovim/nvim-lspconfig',
@@ -44,17 +44,17 @@ require('lazy').setup({
           notification = {
             window = {
               winblend = 0,
-            }
+            },
           },
-        }
+        },
       },
       'folke/neodev.nvim',
     },
   },
 
   {
-  'stevearc/conform.nvim',
-  opts = {},
+    'stevearc/conform.nvim',
+    opts = {},
   },
 
   {
@@ -110,7 +110,7 @@ require('lazy').setup({
 
   {
     'nvim-lualine/lualine.nvim',
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {
       options = {
         icons_enabled = true,
@@ -137,23 +137,23 @@ require('lazy').setup({
   },
 
   {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
     dependencies = {
-      "nvim-lua/plenary.nvim"
-    }
+      'nvim-lua/plenary.nvim',
+    },
   },
 
   {
-    "folke/which-key.nvim",
+    'folke/which-key.nvim',
     dependencies = {
-      { "nvim-tree/nvim-web-devicons" },
-      { "echasnovski/mini.nvim" },
+      { 'nvim-tree/nvim-web-devicons' },
+      { 'echasnovski/mini.nvim' },
     },
     config = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
-      require("which-key").setup({})
+      require('which-key').setup {}
     end,
   },
 
@@ -161,16 +161,16 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
-      'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
+      'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
     },
     build = ':TSUpdate',
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require('nvim-treesitter.configs').setup {
         rainbow = {
           enable = true,
           strategy = {
-            [''] = require("rainbow-delimiters").strategy['global'],
-            vim = require("rainbow-delimiters").strategy['local'],
+            [''] = require('rainbow-delimiters').strategy['global'],
+            vim = require('rainbow-delimiters').strategy['local'],
           },
           query = {
             [''] = 'rainbow-delimiters',
@@ -189,15 +189,14 @@ require('lazy').setup({
             'RainbowDelimiterViolet',
             'RainbowDelimiterCyan',
           },
-
-        }
-      })
-    end
+        },
+      }
+    end,
   },
 
   {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
     ---@module "ibl"
     ---@type ibl.config
     opts = {},
@@ -206,12 +205,12 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {})
 
-require("custom.telescope")
-require("custom.treesitter")
-require("custom.lsp")
-require("custom.autocompletion")
-require("custom.sets")
-require("custom.conform")
+require 'custom.telescope'
+require 'custom.treesitter'
+require 'custom.lsp'
+require 'custom.autocompletion'
+require 'custom.sets'
+require 'custom.conform'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

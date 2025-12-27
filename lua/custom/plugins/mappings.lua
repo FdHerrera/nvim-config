@@ -20,26 +20,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
-
 -- NetRW remaps, they suck
 
 -- Utility to remap commands using netrw (the default finder for nvim)
-vim.api.nvim_create_autocmd("filetype", {
-	pattern = "netrw",
-	desc = "netrw mappings",
-	callback = function()
-		local bind = function(map, to)
-			vim.keymap.set("n", map, to, { remap = true, buffer = true })
-		end
+vim.api.nvim_create_autocmd('filetype', {
+  pattern = 'netrw',
+  desc = 'netrw mappings',
+  callback = function()
+    local bind = function(map, to)
+      vim.keymap.set('n', map, to, { remap = true, buffer = true })
+    end
 
-		-- Add file
-		bind("a", "%")
-		-- Rename file under the cursor
-		bind("r", "R")
-		-- Enter file
-		bind("o", "<cr>")
-		-- Go Up
-		bind("u", "-")
-	end,
+    -- Add file
+    bind('a', '%')
+    -- Rename file under the cursor
+    bind('r', 'R')
+    -- Enter file
+    bind('o', '<cr>')
+    -- Go Up
+    bind('u', '-')
+  end,
 })
 return {}

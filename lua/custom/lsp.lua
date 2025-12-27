@@ -22,35 +22,34 @@ local servers = {
   vimls = {},
   yamlls = {
     yaml = {
-      schemas = { kubernetes = "*.yaml" }
-    }
+      schemas = { kubernetes = '*.yaml' },
+    },
   },
 }
 
-
-require('neodev').setup({
-  library = { plugins = { "neotest" }, types = true }
-})
+require('neodev').setup {
+  library = { plugins = { 'neotest' }, types = true },
+}
 
 -- Default capabilities I want in every server
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
-local mason_lspconfig = require("mason-lspconfig")
+local mason_lspconfig = require 'mason-lspconfig'
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
 }
 
-local on_attach = require("custom.utils")
+local on_attach = require 'custom.utils'
 
 for name, config in pairs(servers) do
-  if name ~= "jdtls" then
+  if name ~= 'jdtls' then
     vim.lsp.config(name, {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = config,
-      filetypes = config.filetypes
+      filetypes = config.filetypes,
     })
   end
 end

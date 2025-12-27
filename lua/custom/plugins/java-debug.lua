@@ -9,6 +9,6 @@ return {
   },
   {
     'microsoft/vscode-java-test',
-    build = 'npm install && npm run build-plugin'
-  }
+    build = 'npm install && npm run build-plugin',
+  },
 }

@@ -1,18 +1,18 @@
-local data = vim.fn.stdpath('data')
+local data = vim.fn.stdpath 'data'
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-local root_dir = require('jdtls.setup').find_root({ 'gradlew', '.git', 'pom.xml' })
+local root_dir = require('jdtls.setup').find_root { 'gradlew', '.git', 'pom.xml' }
 
-local java = os.getenv('JAVA_HOME') .. '/bin/java'
+local java = os.getenv 'JAVA_HOME' .. '/bin/java'
 local jdtls_base = data .. '/mason/packages/jdtls'
-local workspace_folder = vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = vim.fn.fnamemodify(root_dir, ':p:h:t')
 
 -- Register dependency bundles for debuggin
 
 local jar_patterns = {
   '/lazy/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar',
-  '/lazy/vscode-java-test/server/*.jar'
+  '/lazy/vscode-java-test/server/*.jar',
 }
 
 local bundles = {}
@@ -35,14 +35,19 @@ local config = {
     '-Dlog.level=ALL',
     '-Xmx1g',
     '--add-modules=ALL-SYSTEM',
-    '--add-opens', 'java.base/java.util=ALL-UNNAMED',
-    '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+    '--add-opens',
+    'java.base/java.util=ALL-UNNAMED',
+    '--add-opens',
+    'java.base/java.lang=ALL-UNNAMED',
     '-javaagent:' .. jdtls_base .. '/lombok.jar',
 
-    '-jar', vim.fn.glob(jdtls_base .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
-    '-configuration', jdtls_base .. '/config_win', --[[ <- dependant on system ]]
+    '-jar',
+    vim.fn.glob(jdtls_base .. '/plugins/org.eclipse.equinox.launcher_*.jar'),
+    '-configuration',
+    jdtls_base .. '/config_win', --[[ <- dependant on system ]]
 
-    '-data', vim.fn.expand('~/.cache/jdtls-workspace/') .. workspace_folder,
+    '-data',
+    vim.fn.expand '~/.cache/jdtls-workspace/' .. workspace_folder,
   },
 
   root_dir = root_dir,
@@ -63,19 +68,19 @@ local config = {
           },
           codeGeneration = {
             toString = {
-              template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
-            }
+              template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}',
+            },
           },
         },
-      }
-    }
+      },
+    },
   },
 
   init_options = {
     bundles = bundles,
-    extendedClientCapabilities = capabilities
+    extendedClientCapabilities = capabilities,
   },
-  on_attach = require("custom.utils")
+  on_attach = require 'custom.utils',
 }
 
 -- This starts a new client & server,
