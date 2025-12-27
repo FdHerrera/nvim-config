@@ -18,6 +18,7 @@ local servers = {
     },
   },
   pyright = {},
+  ts_ls = {},
   vimls = {},
   yamlls = {
     yaml = {
@@ -49,7 +50,7 @@ for name, config in pairs(servers) do
       capabilities = capabilities,
       on_attach = on_attach,
       settings = config,
-      filetypes = config.filetypes 
+      filetypes = config.filetypes
     })
   end
 end

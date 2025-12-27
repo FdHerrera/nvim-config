@@ -59,7 +59,7 @@ return {
 			{ "<leader>vs", ":vert sb<CR>",     desc = "Vertical split" },
 			{ "<leader>q",  ":q<CR>",           desc = "Quit" },
 			{ "<leader>;",  "A;<ESC>",          desc = "Append ';' to end of line" },
-			{ "<leader>F",  vim.lsp.buf.format, desc = "Format file" },
+			{ "<leader>F", require("conform").format, desc = "Format file" },
 			{
 				{ "<leader>h",  group = "Harpoon" },
 				{ "<leader>ha", function() harpoon:list():append() end,                      desc = "Add File" },
