@@ -3,5 +3,7 @@ require('conform').setup {
     lua = { 'stylua' },
     python = { 'isort' },
     javascript = { 'prettier' },
+    typescriptreact = { 'prettier' },
+    javascriptreact = { 'prettier' },
   },
 }
