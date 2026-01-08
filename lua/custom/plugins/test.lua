@@ -29,22 +29,14 @@ return {
       {
         '<leader>tt',
         function()
-          if vim.bo.filetype == 'java' then
-            require('jdtls').test_nearest_method()
-          else
-            neotest.run.run()
-          end
+          neotest.run.run()
         end,
         desc = 'Run nearest',
       },
       {
         '<leader>tT',
         function()
-          if vim.bo.filetype == 'java' then
-            require('jdtls').test_nearest_method()
-          else
-            neotest.run.run()
-          end
+          neotest.run.run()
         end,
         desc = 'Run nearest',
       },

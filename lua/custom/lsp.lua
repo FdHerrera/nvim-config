@@ -54,20 +54,3 @@ for name, config in pairs(servers) do
   end
 end
 
--- mason_lspconfig.setup_handlers {
---   function(server_name)
---     -- jdtls is so special it needs to be configured in ftplugin/java.lua
---     if 'jdtls' == server_name then
---       return
---     end
---
---     local lsp_config = require('lspconfig')
---
---     lsp_config[server_name].setup {
---       capabilities = capabilities,
---       on_attach = on_attach,
---       settings = servers[server_name],
---       filetypes = (servers[server_name] or {}).filetypes,
---     }
---   end,
--- }
