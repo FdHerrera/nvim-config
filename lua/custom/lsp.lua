@@ -1,8 +1,3 @@
--- This order is important
-require('mason').setup()
-require('mason-lspconfig').setup()
-
--- Servers I want
 local servers = {
   docker_compose_language_service = {},
   dockerls = {},
@@ -12,7 +7,13 @@ local servers = {
   jsonls = {},
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.fn.stdpath('data') .. '/lazy/types',
+          vim.env.VIMRUNTIME .. '/lua',
+        },
+      },
       telemetry = { enable = false },
       diagnostics = { disable = { 'missing-fields' } },
     },
@@ -27,29 +28,22 @@ local servers = {
   },
 }
 
-require('neodev').setup {
-  library = { plugins = { 'neotest' }, types = true },
-}
-
--- Default capabilities I want in every server
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
-mason_lspconfig.setup {
+require('mason').setup()
+require('mason-lspconfig').setup {
   ensure_installed = vim.tbl_keys(servers),
 }
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 local on_attach = require 'custom.utils'
 
 for name, config in pairs(servers) do
-  if name ~= 'jdtls' then
-    vim.lsp.config(name, {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = config,
-      filetypes = config.filetypes,
-    })
-  end
+  vim.lsp.config(name, {
+    capabilities = capabilities,
+    settings = config,
+    on_attach = on_attach,
+  })
 end
+
+vim.lsp.enable(vim.tbl_keys(servers))

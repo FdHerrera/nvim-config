@@ -48,7 +48,7 @@ require('lazy').setup({
           },
         },
       },
-      'folke/neodev.nvim',
+
     },
   },
 
@@ -114,7 +114,6 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'catppuccin',
         component_separators = '|',
         section_separators = '',
       },
