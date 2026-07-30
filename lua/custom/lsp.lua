@@ -53,4 +53,3 @@ for name, config in pairs(servers) do
     })
   end
 end
-
