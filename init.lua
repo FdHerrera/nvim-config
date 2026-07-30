@@ -23,12 +23,8 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  'udalov/kotlin-vim',
-  'mxsdev/nvim-dap-vscode-js',
   'alvan/vim-closetag',
   { 'numToStr/Comment.nvim', opts = {} },
-
-  { 'prettier/vim-prettier', build = 'npm install' },
 
   {
     'neovim/nvim-lspconfig',
@@ -122,7 +118,6 @@ require('lazy').setup({
 
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -147,7 +142,6 @@ require('lazy').setup({
     'folke/which-key.nvim',
     dependencies = {
       { 'nvim-tree/nvim-web-devicons' },
-      { 'echasnovski/mini.nvim' },
     },
     config = function()
       vim.o.timeout = true
